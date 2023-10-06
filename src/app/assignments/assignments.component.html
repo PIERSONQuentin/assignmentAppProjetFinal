@@ -1,0 +1,5 @@
+<p>le titre est : {{titre}}</p>
+
+<p *ngFor="let assignment of assignments">
+  {{assignment.nom}} - {{assignment.dateDeRendu | date}} - {{assignment.rendu ? 'Rendu' : 'Non rendu'}}
+</p>
