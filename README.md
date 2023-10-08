@@ -1,28 +1,22 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/CC0AgZ2W)
 # AssignmentApp
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.2.
-
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Tp 1 sur angular pour réaliser une liste de devoirs, un formulaire d'ajout de devoirs, d'une toolbar et d'une sidebar.
+## Modifications 
+- opérations effecutés jusqu'au transparent 116.
+- mise en place de la toolbar avec :
+    - icone en forme de maison qui servira plus tard à revenir à la page d'accueil.
+    - icone de connexion qui servira plus tard à s'identifier.
+    - icone de menu hamburger permettant d'afficher et de retirer la sidebar.
+- mise en place de la sidebar avec :
+    - un lien "Liste des devoirs"
+    - un  lien "Ajout d'un devoir"
+    - un lien "Modification d'un devoir"
+    - un lien "Suppression d'un devoir"
+    - un lien "Génération de données de test"
+- mise en place de routerLink avec le routing module pour les pages :
+    - Liste des devoirs
+    - Ajout d'un devoir
+    - accueil (renvoie sur la racine pour l'instant)
+  
+## Problèmes connus 
+- la création d'un nouveau devoir ne s'effectue pas car les données ne sont pas persistante a cause de l'utilisation de routerLink
