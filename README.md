@@ -18,6 +18,24 @@ Tp 1 sur angular pour réaliser une liste de devoirs, un formulaire d'ajout de d
     - Liste des devoirs
     - Ajout d'un devoir
     - accueil (renvoie sur la racine pour l'instant)
-  
-## Problèmes connus 
-- la création d'un nouveau devoir ne s'effectue pas car les données ne sont pas persistante a cause de l'utilisation de routerLink
+
+#TP4
+- mise en place de la communication entre composants.
+- mise en place du paramétrage d'url avec paramètres.
+- mise en place d'une interface pour modifier un devoir.
+- mise en place de la possibilité de supprimer un devoir.
+- séparation des différents composant par pages
+- mise en place d'une interface de connexion. 
+    - mise en place d'une sécurité sur la saisie pour obliger la saisie dans les champs de connexion. 
+    - mise en place d'une alerte dans le cas où les identifiants sont incorrects. 
+- mise en place d'une gestion de droit avec accès aux options de modification et suppression si admn. 
+    - identifiants admin : 
+        - username : admin
+        - password : admin123
+    - identifiant utilisateur : 
+        - username : user
+        - password : user123
+- modification de la toolbar pour implémenter le routage de la page "auth" quand on clique sur le bouton de connexion. 
+- mise en place d'un bouton de déconnexion qui apparait uniquement lorsque l'utilisateur est connecté (le bouton de connexion est caché lorsque connecté). 
+- mise en place du bloquage des fonctionnalités de suppression et modification lorsque l'utilisateur ne possède pas le rôle admin. 
+
