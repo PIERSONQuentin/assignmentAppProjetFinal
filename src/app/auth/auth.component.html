@@ -1,1 +1,15 @@
-<p>auth works!</p>
+<!-- FILEPATH: /Users/quentinpierson/Documents/tp1-angular-lord83560/src/app/auth/auth.component.html -->
+<main class="container">
+    <form class="form">
+        <h1>Connexion</h1>
+        <mat-form-field class="input">
+            <label for="identifiant">Identifiant :</label>
+            <input matInput [(ngModel)]="username" name="identifiant" type="text" id="identifiant" required>
+        </mat-form-field>
+        <mat-form-field class="input">
+            <label for="motdepasse">Mot de passe :</label>
+            <input matInput [(ngModel)]="password" name="motdepasse" type="password" id="motdepasse" required>
+        </mat-form-field>
+        <button class="input" mat-stroked-button color="primary" (click)="authentification()">Se connecter</button>
+    </form>
+</main>

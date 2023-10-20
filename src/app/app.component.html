@@ -5,8 +5,9 @@
         <button mat-button class="home" routerLink="/home"> <mat-icon>home</mat-icon></button>
         <a routerLink="/home">{{title}}</a>
         <span class="example-spacer"></span>
-        <!--<mat-slide-toggle (click)="login()"></mat-slide-toggle>-->
-        <button mat-button class="login" (click)="login()"><mat-icon>login</mat-icon></button>
+        
+        <button *ngIf="!isLogged()" mat-button class="login" routerLink="/auth"><mat-icon>login</mat-icon></button>
+        <button *ngIf="isLogged()" mat-button class="logout" routerLink="/home" (click)="logout()"><mat-icon>logout</mat-icon></button>
     </mat-toolbar-row>
 </mat-toolbar>
 

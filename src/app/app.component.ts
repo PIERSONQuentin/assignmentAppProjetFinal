@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
 import { AuthService } from './shared/auth.service';
 
 @Component({
@@ -11,14 +10,16 @@ export class AppComponent {
   title = 'Application de gestion des devoirs à rendre (Assignments)';
   opened = false;
 
-  constructor(private authService:AuthService, private router:Router) {}
+  constructor(private authService:AuthService) {}
 
-  login() {
-    if(!this.authService.loggedIn) {
-      this.authService.logIn();
-    } else {
-      this.authService.logOut();
-      this.router.navigate(['/home']);
-    } 
+  ngOnInit(): void {
+  }
+
+  isLogged() {
+    return this.authService.isLogged();
+  }
+
+  logout() {
+    this.authService.logOut();
   }
 }

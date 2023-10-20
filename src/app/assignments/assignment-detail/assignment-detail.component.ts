@@ -44,9 +44,12 @@ export class AssignmentDetailComponent implements OnInit {
     this.router.navigate(['/assignment', this.assignementTransmis.id, 'edit'], 
     {queryParams: {nom:this.assignementTransmis.nom}, fragment:'edition'});
   }
-
-  isAdmin():boolean {
-    return this.authService.loggedIn;
+  isAdmin(): boolean {
+    if (this.authService.getCurrentUserRole() === 'admin') {
+      return true;
+    } else {
+      return false;
+    }
   }
-
+  
 }

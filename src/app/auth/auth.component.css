@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form {
+    display:flex;
+    flex-direction: column;
+    margin:5px;
+    align-items: center;
+ }
+
+ .input {
+    width: 25%;
+ }
+
+ .container {
+    display: flex;
+    flex-direction: column;
+  }
+ 
+  .ajouterBtn {
+    align-self: flex-end;
+    background-color: white;
+    color: #414141;
+    border: solid 1px;
+    border-color: #414141;
+  }
