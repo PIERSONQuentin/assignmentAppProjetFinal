@@ -17,16 +17,27 @@ export class AssignmentsComponent implements OnInit {
   constructor (private assignmentService:AssignmentsService) {}
 
   ngOnInit(): void {
-    this.assignments = this.assignmentService.getAssignments();
+    //this.assignments = this.assignmentService.getAssignments();
+    this.getAssignments();
+  }
+
+  getAssignments() {
+    this.assignmentService.getAssignments()
+    .subscribe(assignments => this.assignments = assignments);
   }
 
   assignmentClique(assignment:Assignment) {
     this.assignementSelectionne = assignment;
   }
 
+  onAddAssignmentBtnClick() {
+    //this.formVisible = true;
+  }
+  /*
   onNouvelAssignment(event:Assignment) {
-    this.assignments.push(event);
+    //this.assignments.push(event);
+    this.assignmentService.addAssignment(event).subscribe(message => console.log(message));
     this.formVisible = false;
   }
-
+  */
 }

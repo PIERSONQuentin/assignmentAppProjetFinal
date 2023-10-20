@@ -1,16 +1,36 @@
-<mat-list *ngFor="let assignment of assignments">
-  <h3 mat-subheader>{{assignment.dateDeRendu | date}}</h3>
-  <mat-list-item (click)="assignmentClique(assignment)" [ngClass]="{'rendu':assignment.rendu, 'nonRendu': !assignment.rendu}">
-    <p appRendu *ngIf="assignment.rendu; else nonsoumis">
-      Devoir intitulé {{assignment.nom}} a été rendu.
-    </p>
-    <ng-template #nonsoumis>
-      Le devoir {{assignment.nom}} n'a pas été rendu.
-    </ng-template>
-    <mat-divider></mat-divider>
-  </mat-list-item>
-</mat-list>
-<app-assignment-detail [assignementTransmis]="assignementSelectionne"></app-assignment-detail>
+<main class="container">
+  <!--
+  <div class="ajouterBtn">
+    <a routerLink="/add-assignment">
+      <button class="ajouterBtn" mat-flat-button color="primary">
+        Ajouter un devoir
+      </button>
+    </a>
+  </div>
+  -->
+  <!-- composant -->
+  <mat-list *ngFor="let assignment of assignments">
+    <nav><a routerLink="/assignment/{{assignment.id}}">
+      <h3 mat-subheader>{{assignment.dateDeRendu | date}}</h3>
+      <mat-list-item (click)="assignmentClique(assignment)" [ngClass]="{'rendu':assignment.rendu, 'nonRendu': !assignment.rendu}">
+        <p appRendu *ngIf="assignment.rendu; else nonsoumis">
+          Devoir intitulé {{assignment.nom}} a été rendu.
+        </p>
+        <ng-template #nonsoumis>
+          Le devoir {{assignment.nom}} n'a pas été rendu.
+        </ng-template>
+        <mat-divider></mat-divider>
+      </mat-list-item>
+    </a></nav>
+  </mat-list>
+  <!--
+  <app-assignment-detail [assignementTransmis]="assignementSelectionne"></app-assignment-detail>
+  -->
+  <!-- composant -->
+</main>
 
 
+
+<!--
 <app-add-assignment (nouvelAssignment)="onNouvelAssignment($event)" *ngIf="formVisible"></app-add-assignment>
+-->

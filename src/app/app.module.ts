@@ -25,13 +25,19 @@ import { AddAssignmentComponent } from './assignments/add-assignment/add-assignm
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { AppRoutingModule } from './app-routing.module';
+import { EditAssignmentComponent } from './assignments/edit-assignment/edit-assignment.component';
+
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AssignmentsComponent,
     AssignmentDetailComponent,
-    AddAssignmentComponent
+    AddAssignmentComponent,
+    EditAssignmentComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +55,8 @@ import { AppRoutingModule } from './app-routing.module';
     MatCheckboxModule, 
     MatToolbarModule,
     MatSidenavModule,
-    AppRoutingModule
+    AppRoutingModule, 
+    MatSlideToggleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

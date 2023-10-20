@@ -2,17 +2,18 @@
 <mat-toolbar>
     <mat-toolbar-row>
         <button mat-button class="menu" (click)="opened=!opened"><mat-icon>menu</mat-icon></button>
-        <button mat-button class="home" routerLink="/"> <mat-icon>home</mat-icon></button>
-        <span>{{title}}</span>
+        <button mat-button class="home" routerLink="/home"> <mat-icon>home</mat-icon></button>
+        <a routerLink="/home">{{title}}</a>
         <span class="example-spacer"></span>
-        <button mat-button class="login"> <mat-icon>login</mat-icon></button>
+        <!--<mat-slide-toggle (click)="login()"></mat-slide-toggle>-->
+        <button mat-button class="login" (click)="login()"><mat-icon>login</mat-icon></button>
     </mat-toolbar-row>
 </mat-toolbar>
 
 <!-- SideNav -->
 <mat-sidenav-container>
     <mat-sidenav [(opened)]="opened" mode="side">
-        <button mat-button class="sidenavBtn" routerLink="/assignment-list">Liste des devoirs</button>
+        <button mat-button class="sidenavBtn" routerLink="/assignments">Liste des devoirs</button>
         <button mat-button class="sidenavBtn" routerLink="/add-assignment">Ajout d'un devoir</button>
         <button mat-button class="sidenavBtn" routerLink="">Modification d'un devoir</button>
         <button mat-button class="sidenavBtn" routerLink="">Suppression d'un devoir</button>

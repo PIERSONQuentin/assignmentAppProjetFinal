@@ -1,14 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './shared/auth.guard';
 
 import { AssignmentsComponent } from './assignments/assignments.component'; 
 import { AddAssignmentComponent } from './assignments/add-assignment/add-assignment.component';
-
+import { AssignmentDetailComponent } from './assignments/assignment-detail/assignment-detail.component';
+import { EditAssignmentComponent } from './assignments/edit-assignment/edit-assignment.component';
 
 const routes: Routes = [
-  { path: 'assignment-list', component: AssignmentsComponent },
-  { path: 'add-assignment', component: AddAssignmentComponent }
+  { path: '', component: AssignmentsComponent}, 
+  { path: 'home', component: AssignmentsComponent},
+  { path: 'assignments', component: AssignmentsComponent },
+  { path: 'add-assignment', component: AddAssignmentComponent }, 
+  { path: 'assignment/:id', component: AssignmentDetailComponent },
+  { path: 'assignment/:id/edit', component: EditAssignmentComponent, canActivate: [AuthGuard]}, 
 ];
 
 @NgModule({
@@ -16,11 +22,4 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 
-/*
-@NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
-})*/
 export class AppRoutingModule { }
