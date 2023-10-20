@@ -19,7 +19,7 @@ Tp 1 sur angular pour réaliser une liste de devoirs, un formulaire d'ajout de d
     - Ajout d'un devoir
     - accueil (renvoie sur la racine pour l'instant)
 
-#TP4
+## TP4
 - mise en place de la communication entre composants.
 - mise en place du paramétrage d'url avec paramètres.
 - mise en place d'une interface pour modifier un devoir.
