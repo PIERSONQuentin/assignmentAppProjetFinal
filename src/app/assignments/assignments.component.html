@@ -1,4 +1,6 @@
 <main class="container">
+
+  <app-sort-assignment></app-sort-assignment>
   <!-- composant -->
   <mat-list *ngFor="let assignment of assignments">
     <nav><a routerLink="/assignment/{{assignment.id}}">
@@ -14,20 +16,6 @@
       </mat-list-item>
     </a></nav>
   </mat-list>
-  
-  <!-- pagination -->
-  <!--
-  <div class="pagination">
-    <button mat-stroked-button color="primary" (click)="goToFirstPage()">Première page</button>
-    <button mat-stroked-button color="primary" (click)="goToPreviousPage()" [disabled]="!isPreviousPage()">Page précédente</button>
-    <button mat-stroked-button color="primary" (click)="goToNextPage()" [disabled]="!isNextPage()">Page suivante</button>
-    <button mat-stroked-button color="primary" (click)="goToLastPage()">Dernière page</button>
-  </div>
-  <div>
-    <p>Page {{page}} sur {{totalPages}}</p>
-    <p>Nombre de documents : {{totalDocs}}</p>
-  </div>
-  -->
 
   <app-paginator></app-paginator>
 </main>

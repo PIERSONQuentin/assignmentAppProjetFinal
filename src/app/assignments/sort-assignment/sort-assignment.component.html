@@ -1,0 +1,29 @@
+<form class="search-form">
+    <mat-form-field class="full-width">
+        <span matPrefix> </span>
+        <input type="tel" matInput placeholder="Search" name= "search" [(ngModel)]= "search" (keyup)="applyFilter($event)">
+        <button matSuffix mat-button><mat-icon >search</mat-icon></button>
+    </mat-form-field>
+
+    <span class="spacer"></span>
+
+    <mat-form-field>
+        <mat-select placeholder="Trier par date" name="sortDate" [(ngModel)]="sortDate" (change)="applyFilter($event)">
+            <mat-option value="asc">Plus récent</mat-option>
+            <mat-option value="desc">Plus ancien</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <span class="spacer"></span>
+
+    <mat-form-field>
+        <mat-select placeholder="Trier par rendu" name="sort" [(ngModel)]="sortRendu" (change)="applyFilter($event)">
+            <mat-option value="Rendu">Rendu</mat-option>
+            <mat-option value="nonRendu">Non rendu</mat-option>
+        </mat-select>
+    </mat-form-field>
+
+    <span class="spacer"></span>
+
+    <button mat-button class="resetbtn" name="resetFilter" color="primary" (click)="resetFilter()">Réinitialiser les filtres</button>
+</form>

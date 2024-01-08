@@ -35,6 +35,9 @@ import { AssignmentTestComponent } from './assignments/assignment-test/assignmen
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { PaginatorComponent } from './assignments/paginator/paginator.component';
 import '@angular/localize/init';
+import { SortAssignmentComponent } from './assignments/sort-assignment/sort-assignment.component';
+
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -45,7 +48,8 @@ import '@angular/localize/init';
     EditAssignmentComponent,
     AuthComponent,
     AssignmentTestComponent,
-    PaginatorComponent
+    PaginatorComponent,
+    SortAssignmentComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +70,8 @@ import '@angular/localize/init';
     AppRoutingModule, 
     MatSlideToggleModule,
     HttpClientModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
