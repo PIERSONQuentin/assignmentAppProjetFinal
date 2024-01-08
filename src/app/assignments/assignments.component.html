@@ -1,13 +1,4 @@
 <main class="container">
-  <!--
-  <div class="ajouterBtn">
-    <a routerLink="/add-assignment">
-      <button class="ajouterBtn" mat-flat-button color="primary">
-        Ajouter un devoir
-      </button>
-    </a>
-  </div>
-  -->
   <!-- composant -->
   <mat-list *ngFor="let assignment of assignments">
     <nav><a routerLink="/assignment/{{assignment.id}}">
@@ -23,14 +14,20 @@
       </mat-list-item>
     </a></nav>
   </mat-list>
+  
+  <!-- pagination -->
   <!--
-  <app-assignment-detail [assignementTransmis]="assignementSelectionne"></app-assignment-detail>
+  <div class="pagination">
+    <button mat-stroked-button color="primary" (click)="goToFirstPage()">Première page</button>
+    <button mat-stroked-button color="primary" (click)="goToPreviousPage()" [disabled]="!isPreviousPage()">Page précédente</button>
+    <button mat-stroked-button color="primary" (click)="goToNextPage()" [disabled]="!isNextPage()">Page suivante</button>
+    <button mat-stroked-button color="primary" (click)="goToLastPage()">Dernière page</button>
+  </div>
+  <div>
+    <p>Page {{page}} sur {{totalPages}}</p>
+    <p>Nombre de documents : {{totalDocs}}</p>
+  </div>
   -->
-  <!-- composant -->
+
+  <app-paginator></app-paginator>
 </main>
-
-
-
-<!--
-<app-add-assignment (nouvelAssignment)="onNouvelAssignment($event)" *ngIf="formVisible"></app-add-assignment>
--->

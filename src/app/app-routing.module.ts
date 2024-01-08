@@ -8,6 +8,8 @@ import { AddAssignmentComponent } from './assignments/add-assignment/add-assignm
 import { AssignmentDetailComponent } from './assignments/assignment-detail/assignment-detail.component';
 import { EditAssignmentComponent } from './assignments/edit-assignment/edit-assignment.component';
 import { AuthComponent } from './auth/auth.component'; 
+import { Assignment } from './assignments/assignments.model';
+import { AssignmentTestComponent } from './assignments/assignment-test/assignment-test.component';
 
 const routes: Routes = [
   { path: '', component: AssignmentsComponent}, 
@@ -16,7 +18,8 @@ const routes: Routes = [
   { path: 'add-assignment', component: AddAssignmentComponent }, 
   { path: 'assignment/:id', component: AssignmentDetailComponent },
   { path: 'assignment/:id/edit', component: EditAssignmentComponent, canActivate: [AuthGuard]}, 
-  { path: 'auth', component: AuthComponent}
+  { path: 'auth', component: AuthComponent}, 
+  { path: 'test', component: AssignmentTestComponent}
 ];
 
 @NgModule({

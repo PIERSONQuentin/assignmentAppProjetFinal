@@ -8,13 +8,14 @@
     flex-direction: column;
     margin:5px;
     align-items: center;
+    padding-top: 20px;
  }
 
  .input {
     width: 25%;
  }
  
-  .ajouterBtn {
+.ajouterBtn {
     align-self: flex-end;
     background-color: white;
     color: #414141;

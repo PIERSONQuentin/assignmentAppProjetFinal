@@ -2,59 +2,80 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Assignment } from '../assignments/assignments.model';
 import { LoggingService } from './logging.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { map, tap, catchError } from 'rxjs/operators';
+import { bdInitialAssignments } from './data';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AssignmentsService {
-  assignments:Assignment[] = [
-    {
-      id: 1,
-      nom: "Vive les maths",
-      dateDeRendu: new Date('2021-03-01'),
-      rendu: true
-    },
-    {
-      id: 2,
-      nom: "Vive la physique",
-      dateDeRendu: new Date('2023-03-05'),
-      rendu: false
-    },
-    {
-      id: 3,
-      nom: "Angular c'est encore mieux",
-      dateDeRendu: new Date('2021-03-10'),
-      rendu: false
-  }];
+  private HttpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json'
+    })
+  }; 
   
-  constructor(private loggingService:LoggingService) { }
+  constructor(private loggingService:LoggingService, 
+              private http:HttpClient) { }
+
+  url = 'http://localhost:8010/api/assignments';
   
   getAssignments():Observable<Assignment[]> {
-    return of (this.assignments);
+    //return of (this.assignments);
+    return this.http.get<Assignment[]>(this.url); 
   }
 
   getAssignment(id:number):Observable<Assignment|undefined> {
-    const assignment:Assignment|undefined = this.assignments.find(assignment => assignment.id === id);
-    return of (assignment);
+    //const assignment:Assignment|undefined = this.assignments.find(assignment => assignment.id === id);
+    //return of (assignment);
+    const url = `${this.url}/${id}`;
+    return this.http.get<Assignment>(url)
+    .pipe(
+      map(assignment => {
+        assignment.nom = assignment.nom.toUpperCase();
+        return assignment;
+      }), 
+      tap(assignment => {
+        this.loggingService.log(assignment.nom, 'a été récupéré');
+      }), 
+      catchError(this.handleError<any>(`### catchError: getAssignment id=${id}`))
+    )
   } 
 
-  addAssignment(assignment:Assignment):Observable<string> {
-    this.assignments.push(assignment);
-    this.loggingService.log(assignment.nom, 'a été ajouté');
-    return of ('assignment ajouté');
+  getAssignmentsPagine(page:number, limit:number):Observable<any> {
+    return this.http.get<any>(this.url + `?page=${page}&limit=${limit}`)
   }
 
-  updateAssignment(assignment:Assignment):Observable<string> {
-    const index = this.assignments.indexOf(assignment);
-    this.assignments[index] = assignment;
-    this.loggingService.log(assignment.nom, 'a été modifié');
-    return of ('Assignment service : assignment modifié !');
+  private handleError<T>(operation = 'operation', result?:T) {
+    return (error:any):Observable<T> => {
+      console.error(error);
+      console.log(`${operation} a échoué: ${error.message}`);
+      return of(result as T);
+    }
   }
 
-  deleteAssignment(assignment:Assignment):Observable<string> {
-    const index = this.assignments.indexOf(assignment);
-    this.assignments.splice(index, 1);
-    this.loggingService.log(assignment.nom, 'a été supprimé');
-    return of ('Assignment service : assignment supprimé !');
+  addAssignment(assignment:Assignment):Observable<any> {
+    return this.http.post(this.url, assignment, this.HttpOptions);  
+  }
+
+  updateAssignment(assignment:Assignment):Observable<any> {
+    return this.http.put(this.url, assignment);
+  }
+
+  deleteAssignment(assignment:Assignment):Observable<any> {
+    const url = `${this.url}/${assignment._id}`;
+    return this.http.delete(url);
+  }
+
+  peuplerBD() {
+    bdInitialAssignments.forEach(a => {
+      const newAssignment = new Assignment();
+      newAssignment.id = a.id;
+      newAssignment.nom = a.nom;
+      newAssignment.dateDeRendu = new Date(a.dateDeRendu);
+      newAssignment.rendu = a.rendu;
+      this.addAssignment(newAssignment).subscribe(message => console.log(message));
+    })
   }
 }

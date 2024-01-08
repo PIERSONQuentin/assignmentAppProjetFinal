@@ -21,7 +21,8 @@ export class AddAssignmentComponent implements OnInit {
   onSubmit() {
     
     const newAssignement = new Assignment();
-    newAssignement.id = this.assignmentsService.assignments.length + 1;
+    //newAssignement.id = this.assignmentsService.assignments.length + 1;
+    newAssignement.id = Math.floor(Math.random() * 1000000);
     newAssignement.nom = this.nomDevoir;
     newAssignement.dateDeRendu = this.dateDeRendu;
     newAssignement.rendu = false; 

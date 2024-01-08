@@ -29,6 +29,12 @@ import { EditAssignmentComponent } from './assignments/edit-assignment/edit-assi
 
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { AuthComponent } from './auth/auth.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AssignmentTestComponent } from './assignments/assignment-test/assignment-test.component';
+
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { PaginatorComponent } from './assignments/paginator/paginator.component';
+import '@angular/localize/init';
 
 @NgModule({
   declarations: [
@@ -37,7 +43,9 @@ import { AuthComponent } from './auth/auth.component';
     AssignmentDetailComponent,
     AddAssignmentComponent,
     EditAssignmentComponent,
-    AuthComponent
+    AuthComponent,
+    AssignmentTestComponent,
+    PaginatorComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +64,9 @@ import { AuthComponent } from './auth/auth.component';
     MatToolbarModule,
     MatSidenavModule,
     AppRoutingModule, 
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    HttpClientModule,
+    MatPaginatorModule
   ],
   providers: [],
   bootstrap: [AppComponent]

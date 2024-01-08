@@ -30,7 +30,7 @@ export class AssignmentDetailComponent implements OnInit {
   onAssignmentRendu() {
     this.assignementTransmis.rendu = true;
     this.assignmentService.updateAssignment(this.assignementTransmis).subscribe(message => console.log(message));
-    this.router.navigate(['/home']);
+    //this.router.navigate(['/home']);
   }
 
   onAssignmentDelete() {
