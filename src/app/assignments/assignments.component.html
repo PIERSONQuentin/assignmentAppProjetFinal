@@ -1,17 +1,21 @@
 <main class="container">
 
-  <app-sort-assignment></app-sort-assignment>
+  <app-sort-assignment (sortCriteriaChanged)="onSortCriteriaChanged($event)"></app-sort-assignment>
   <!-- composant -->
   <mat-list *ngFor="let assignment of assignments">
     <nav><a routerLink="/assignment/{{assignment.id}}">
       <h3 mat-subheader>{{assignment.dateDeRendu | date}}</h3>
+      
       <mat-list-item (click)="assignmentClique(assignment)" [ngClass]="{'rendu':assignment.rendu, 'nonRendu': !assignment.rendu}">
+        
         <p appRendu *ngIf="assignment.rendu; else nonsoumis">
           Devoir intitulé {{assignment.nom}} a été rendu.
         </p>
+        
         <ng-template #nonsoumis>
           Le devoir {{assignment.nom}} n'a pas été rendu.
         </ng-template>
+
         <mat-divider></mat-divider>
       </mat-list-item>
     </a></nav>

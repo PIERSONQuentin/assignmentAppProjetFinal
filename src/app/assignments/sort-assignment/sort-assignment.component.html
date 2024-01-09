@@ -1,14 +1,14 @@
 <form class="search-form">
     <mat-form-field class="full-width">
         <span matPrefix> </span>
-        <input type="tel" matInput placeholder="Search" name= "search" [(ngModel)]= "search" (keyup)="applyFilter($event)">
+        <input type="tel" matInput placeholder="Search" name= "search" [(ngModel)]= "sortSearch" (ngModelChange)="updateSortSearch($event)">
         <button matSuffix mat-button><mat-icon >search</mat-icon></button>
     </mat-form-field>
 
     <span class="spacer"></span>
 
     <mat-form-field>
-        <mat-select placeholder="Trier par date" name="sortDate" [(ngModel)]="sortDate" (change)="applyFilter($event)">
+        <mat-select placeholder="Trier par date" name="sortDate" [(ngModel)]="sortDate" (ngModelChange)="updateSortDate($event)">
             <mat-option value="asc">Plus récent</mat-option>
             <mat-option value="desc">Plus ancien</mat-option>
         </mat-select>
@@ -17,9 +17,9 @@
     <span class="spacer"></span>
 
     <mat-form-field>
-        <mat-select placeholder="Trier par rendu" name="sort" [(ngModel)]="sortRendu" (change)="applyFilter($event)">
-            <mat-option value="Rendu">Rendu</mat-option>
-            <mat-option value="nonRendu">Non rendu</mat-option>
+        <mat-select placeholder="Trier par rendu" name="sort" [(ngModel)]="sortRendu" (ngModelChange)="updateSortRendu($event)">
+            <mat-option value="true">Rendu</mat-option>
+            <mat-option value="false">Non rendu</mat-option>
         </mat-select>
     </mat-form-field>
 

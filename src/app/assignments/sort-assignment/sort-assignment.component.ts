@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-sort-assignment',
@@ -6,40 +6,49 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sort-assignment.component.css']
 })
 export class SortAssignmentComponent implements OnInit {
+  @Output() sortCriteriaChanged = new EventEmitter<{ sortDate: string, sortRendu: string, sortSearch: string }>();
+  sortSearch: string = "";
+  sortDate: string = "";
+  sortRendu: string = "";
 
   constructor() { }
 
   ngOnInit(): void {
+    // Initialiser ou récupérer vos assignments ici
   }
 
-  search : String ="";
-  sortDate : String ="";
-  sortRendu : String =""; 
-
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
+  updateSortSearch(value: string) {
+    this.sortSearch = value;
+    this.emitSortCriteria();
   }
 
-  sortDateAsc(){
-    this.sortDate = "asc";
+  // Mettre à jour le tri par date
+  updateSortDate(value: string) {
+    this.sortDate = value;
+    console.log(this.sortDate);
+    this.emitSortCriteria();
   }
 
-  sortDateDesc(){
-    this.sortDate = "desc";
+  // Mettre à jour le tri par rendu
+  updateSortRendu(value: string) {
+    this.sortRendu = value;
+    this.emitSortCriteria();
   }
 
-  sortRenduAsc(){
-    this.sortRendu = "asc";
-  }
-
-  sortRenduDesc(){
-    this.sortRendu = "desc";
-  }
-
-  resetFilter(){
-    this.search = "";
+  // Réinitialiser les filtres
+  resetFilter() {
     this.sortDate = "";
     this.sortRendu = "";
+    this.sortSearch = "";
+    this.emitSortCriteria();
   }
 
+  // Envoyer les critères de tri au composant parent
+  private emitSortCriteria() {
+    this.sortCriteriaChanged.emit({
+      sortDate: this.sortDate,
+      sortRendu: this.sortRendu, 
+      sortSearch: this.sortSearch
+    });
+  }
 }
