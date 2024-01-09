@@ -46,25 +46,39 @@ export class AssignmentsComponent implements OnInit {
       this.loadPageData(); // Charger les données en fonction de la limite actuelle
     });
   }
-  
+
   loadPageData(): void {
     this.assignmentService.getAssignmentsPagine(this.page, this.limit)
       .subscribe(data => {
-        this.assignments = data.docs;
-        this.totalDocs = data.totalDocs;
-        this.totalPages = data.totalPages;
+        let processedAssignments = data.docs;
+  
+        if (this.sortDate) {
+          processedAssignments = this.sortAssignmentsByDate(processedAssignments, this.sortDate);
+        }
+        if (this.sortRendu) {
+          processedAssignments = this.sortAssignmentsByRendu(processedAssignments, this.sortRendu === 'true');
+        }
+        if (this.sortSearch) {
+          processedAssignments = this.sortAssignmentsBySearch(processedAssignments, this.sortSearch);
+        }
+  
+        this.assignments = processedAssignments;
+        
+        // Gestion de la pagination en fonction des critères de tri
+        this.totalDocs = this.sortDate || this.sortRendu || this.sortSearch ? processedAssignments.length : data.totalDocs;
+        this.totalPages = Math.ceil(this.totalDocs / this.limit);
+  
         this.nextPage = data.nextPage;
         this.prevPage = data.prevPage;
         this.hasPrevPage = data.hasPrevPage;
         this.hasNextPage = data.hasNextPage;
-  
+    
         // Mettre à jour les valeurs de pagination dans le service
         this.paginationService.changeTotalPages(this.totalPages);
         this.paginationService.changeLimit(this.limit);
-
-        this.sortAssignments();
       });
   }  
+  
   
   getAssignments() {
     this.assignmentService.getAssignments()

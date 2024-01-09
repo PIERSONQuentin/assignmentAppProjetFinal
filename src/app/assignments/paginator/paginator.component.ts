@@ -40,13 +40,6 @@ export class PaginatorComponent implements OnInit {
     });
   }
 
-  /*
-  onPageChange(event: PageEvent): void {
-    const newPage = event.pageIndex + 1; // +1 pour compenser l'indice de départ à 0
-    this.paginationService.goToPage(newPage);
-  }
-  */
-
   onPageChange(event: PageEvent): void {
     const newPage = event.pageIndex + 1; // +1 car MatPaginator commence à l'indice 0
     const newLimit = event.pageSize;
@@ -73,7 +66,7 @@ export class PaginatorComponent implements OnInit {
     if (length === 0) {
       return $localize`Page 1 sur 1`;
     }
-    const amountPages = Math.ceil(length / pageSize);
-    return $localize`Page ${page + 1} sur ${amountPages}`;
+
+    return $localize`Page ${page + 1} sur ${length}`;
   }
 }

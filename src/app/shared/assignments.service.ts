@@ -22,13 +22,10 @@ export class AssignmentsService {
   url = 'http://localhost:8010/api/assignments';
   
   getAssignments():Observable<Assignment[]> {
-    //return of (this.assignments);
     return this.http.get<Assignment[]>(this.url); 
   }
 
   getAssignment(id:number):Observable<Assignment|undefined> {
-    //const assignment:Assignment|undefined = this.assignments.find(assignment => assignment.id === id);
-    //return of (assignment);
     const url = `${this.url}/${id}`;
     return this.http.get<Assignment>(url)
     .pipe(
