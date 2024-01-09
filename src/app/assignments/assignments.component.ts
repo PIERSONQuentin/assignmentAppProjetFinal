@@ -110,14 +110,9 @@ export class AssignmentsComponent implements OnInit {
   }
 
   private sortAssignmentsByRendu(assignments: Assignment[], sortRendu: boolean): Assignment[] {
-    return assignments.sort((a, b) => {
-      if (sortRendu) {
-        return (a.rendu === sortRendu) ? -1 : 1;
-      } else {
-        return (b.rendu === sortRendu) ? -1 : 1;
-      }
-    });
+    return assignments.filter(assignment => assignment.rendu === sortRendu);
   }
+  
 
   private sortAssignmentsBySearch(assignments: Assignment[], searchTerm: string): Assignment[] {
     if (!searchTerm) {

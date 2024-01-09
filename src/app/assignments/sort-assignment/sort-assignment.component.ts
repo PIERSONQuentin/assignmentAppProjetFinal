@@ -7,6 +7,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 })
 export class SortAssignmentComponent implements OnInit {
   @Output() sortCriteriaChanged = new EventEmitter<{ sortDate: string, sortRendu: string, sortSearch: string }>();
+  
   sortSearch: string = "";
   sortDate: string = "";
   sortRendu: string = "";
@@ -25,7 +26,6 @@ export class SortAssignmentComponent implements OnInit {
   // Mettre à jour le tri par date
   updateSortDate(value: string) {
     this.sortDate = value;
-    console.log(this.sortDate);
     this.emitSortCriteria();
   }
 
