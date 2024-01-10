@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { MatPaginatorIntl, MatPaginatorModule, PageEvent } from '@angular/material/paginator';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator, MatPaginatorIntl, PageEvent } from '@angular/material/paginator';
 import { Subject } from 'rxjs';
 import { PaginationService } from 'src/app/shared/pagination.service';
 
@@ -24,15 +24,22 @@ export class PaginatorComponent implements OnInit {
   disabled = false;
   pageSizeOptions = [5, 10, 25, 100];
 
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
   constructor(private paginationService: PaginationService) { }
 
   ngOnInit(): void {
     this.paginationService.currentLimit.subscribe(limit => {
       this.limit = limit;
     });
-
+    /*
     this.paginationService.currentTotalPages.subscribe(totalPages => {
       this.totalPages = totalPages;
+    });
+    */
+
+    this.paginationService.currentTotalDocs.subscribe(totalDocs => {
+      this.totalPages = totalDocs;
     });
 
     this.paginationService.currentPageObservable.subscribe(page => {
@@ -67,6 +74,10 @@ export class PaginatorComponent implements OnInit {
       return $localize`Page 1 sur 1`;
     }
 
-    return $localize`Page ${page + 1} sur ${length}`;
+    console.log(length)
+
+    const amountPages = Math.ceil(length / pageSize);
+
+    return $localize`Page ${page + 1} sur ${amountPages}`;
   }
 }

@@ -76,6 +76,11 @@ export class AssignmentsComponent implements OnInit {
         // Mettre à jour les valeurs de pagination dans le service
         this.paginationService.changeTotalPages(this.totalPages);
         this.paginationService.changeLimit(this.limit);
+
+        // Mettre à jour le nombre total de documents dans le service si aucun tri n'est appliqué
+        if(!this.sortDate || !this.sortRendu) {
+          this.paginationService.changeTotalDocs(this.totalDocs);
+        }
       });
   }  
   
