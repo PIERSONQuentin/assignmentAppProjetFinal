@@ -26,7 +26,7 @@ export class AddAssignmentComponent implements OnInit {
     //newAssignement.id = this.assignmentsService.assignments.length + 1;
     newAssignement.id = Math.floor(Math.random() * 1000000);
     newAssignement.nom = this.nomDevoir;
-    newAssignement.Auteur = this.authService.getCurrentUser();
+    newAssignement.Auteur = this.authService.getCurrentUser().username;
     newAssignement.dateDeRendu = this.dateDeRendu;
     newAssignement.rendu = false; 
 

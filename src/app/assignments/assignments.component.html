@@ -4,9 +4,8 @@
   <!-- composant -->
   <mat-list *ngFor="let assignment of assignments">
     <nav><a routerLink="/assignment/{{assignment.id}}">
-      <h3 mat-subheader>{{assignment.dateDeRendu | date}}</h3>
-      <h2 mat-subheader>{{assignment.Auteur}}</h2>
-      
+      <h3 mat-subheader>{{assignment.dateDeRendu | date}} | {{assignment.Auteur || "undefined"}}</h3>
+
       <mat-list-item (click)="assignmentClique(assignment)" [ngClass]="{'rendu':assignment.rendu, 'nonRendu': !assignment.rendu}">
         
         <p appRendu *ngIf="assignment.rendu; else nonsoumis">
