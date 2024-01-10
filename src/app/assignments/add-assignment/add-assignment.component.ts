@@ -1,6 +1,7 @@
 import { Component, /*EventEmitter, Output*/ OnInit } from '@angular/core';
 import { Assignment } from '../assignments.model';
 import { AssignmentsService } from '../../shared/assignments.service';
+import { AuthService } from 'src/app/shared/auth.service';
 
 @Component({
   selector: 'app-add-assignment',
@@ -13,7 +14,8 @@ export class AddAssignmentComponent implements OnInit {
   nomDevoir:string = " ";
   dateDeRendu:Date = new Date();
 
-  constructor(private assignmentsService:AssignmentsService) { }
+  constructor(private assignmentsService:AssignmentsService, 
+              private authService:AuthService) { }
 
   ngOnInit(): void {
   };
@@ -24,6 +26,7 @@ export class AddAssignmentComponent implements OnInit {
     //newAssignement.id = this.assignmentsService.assignments.length + 1;
     newAssignement.id = Math.floor(Math.random() * 1000000);
     newAssignement.nom = this.nomDevoir;
+    newAssignement.Auteur = this.authService.getCurrentUser();
     newAssignement.dateDeRendu = this.dateDeRendu;
     newAssignement.rendu = false; 
 

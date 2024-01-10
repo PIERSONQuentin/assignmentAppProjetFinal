@@ -45,4 +45,8 @@ export class AuthService {
     }
     return 'user'; // Valeur par défaut si l'utilisateur n'est pas connecté.
   }
+
+  getCurrentUser() {
+    return this.currentUser;
+  }
 }
