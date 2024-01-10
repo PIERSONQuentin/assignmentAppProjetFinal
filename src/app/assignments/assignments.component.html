@@ -4,7 +4,7 @@
   <!-- composant -->
   <mat-list *ngFor="let assignment of assignments">
     <nav><a routerLink="/assignment/{{assignment.id}}">
-      <h3 mat-subheader>{{assignment.dateDeRendu | date}} | {{assignment.Auteur || "undefined"}}</h3>
+      <h3 mat-subheader>{{assignment.dateDeRendu | date}} | {{assignment.auteur || "undefined"}}</h3>
 
       <mat-list-item (click)="assignmentClique(assignment)" [ngClass]="{'rendu':assignment.rendu, 'nonRendu': !assignment.rendu}">
         

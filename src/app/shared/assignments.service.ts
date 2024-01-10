@@ -70,7 +70,7 @@ export class AssignmentsService {
       const newAssignment = new Assignment();
       newAssignment.id = a.id;
       newAssignment.nom = a.nom;
-      newAssignment.Auteur = a.Auteur;
+      newAssignment.auteur = a.auteur;
       newAssignment.dateDeRendu = new Date(a.dateDeRendu);
       newAssignment.rendu = a.rendu;
       this.addAssignment(newAssignment).subscribe(message => console.log(message));

@@ -129,7 +129,8 @@ export class AssignmentsComponent implements OnInit {
     searchTerm = searchTerm.toLowerCase(); // Convertir le terme de recherche en minuscules pour la comparaison
 
     return assignments.filter(assignment => {
-      return (assignment.nom && assignment.nom.toLowerCase().includes(searchTerm));
+      return (assignment.nom && assignment.nom.toLowerCase().includes(searchTerm) 
+      || assignment.auteur && assignment.auteur.toLowerCase().includes(searchTerm));
     });
   }
 
