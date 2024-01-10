@@ -96,18 +96,6 @@ export class AssignmentsComponent implements OnInit {
     this.loadPageData();
   }
 
-  sortAssignments() {
-    if (this.sortDate) {
-      this.assignments = this.sortAssignmentsByDate(this.assignments, this.sortDate);
-    }
-    if (this.sortRendu) {
-      this.assignments = this.sortAssignmentsByRendu(this.assignments, this.sortRendu === 'true');
-    }
-    if (this.sortSearch) {
-      this.assignments = this.sortAssignmentsBySearch(this.assignments, this.sortSearch);
-    }
-  }
-
   private sortAssignmentsByDate(assignments: Assignment[], sortDate: string): Assignment[] {
     return assignments.sort((a, b) => {
       const dateA = new Date(a.dateDeRendu);
