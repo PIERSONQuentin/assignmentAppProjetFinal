@@ -46,7 +46,7 @@ VASSEUR Matthéo
     - username : user
     - password : user123
 
-## Modifications du modèle des Assignments 
+## Modifications du modèle des Assignments
 
 - Ajout de la propriété "Auteur" au modèle des Assignments, qui sera l'utilisateur connecté lors de la création de l'assignment.
 - Ajout de la propriété "imageAuteur" au modèle des Assignments, qui sera l'image lié à l'utilisateur connecté lors de la création de l'assignment.
@@ -56,11 +56,14 @@ VASSEUR Matthéo
 - Ajout de la propriété "remarques" au modèle des Assignments, qui sera les remarques concernant l'assignment.
 
 ## Fonctionnalités
-- 2000 assignments dans la base de données.
+- 1000 assignments dans la base de données.
 - Formulaire de login/password et bouton de connexion dans la toolbar. Une fois loggué, le formulaire disparait et seul un bouton de déconnexion apparait.
 - Les utilisateurs autorisés peuvent modifier et ajouter des assignments. Les administrateurs peuvent également supprimer des assignments. Les utilisateurs non connectés peuvent uniquement consulter les assignments.
 - Liste de login/passwords valides codée en dur dans le service d'authentification.  
 - Système de tri des assignments par date de rendu et date de création, ainsi qu'une barre de recherche pour rechercher le titre de l'assignment ou l'auteur.
 - Système dynamique d'assignments affichés par pages.
+
+## Fonctionnalités réalisés par Matthéo VASSEUR
+
 - Utilisation d'un formulaire de type Stepper pour l'ajout d'Assignments.
 - Ajout de messages de notification avec SnackBar Material.
