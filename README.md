@@ -15,7 +15,7 @@ VASSEUR Matthéo
 
 3. Accédez au répertoire du projet :
     ```
-    cd assignmentAppProjetFinal-frontend
+    cd assignmentAppProjetFinal-main
     ```
 
 4. Installez les dépendances du projet en exécutant la commande suivante :
