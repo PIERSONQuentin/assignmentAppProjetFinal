@@ -10,7 +10,7 @@ VASSEUR Matthéo
 
 2. Clonez ce dépôt sur votre machine en utilisant la commande suivante :
     ```
-    git clone https://github.com/votre-utilisateur/tp1-angular-lord83560.git
+    git clone PIERSONQuentin/assignmentAppProjetFinal.git
     ```
 
 3. Accédez au répertoire du projet :
