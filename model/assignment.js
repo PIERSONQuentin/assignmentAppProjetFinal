@@ -5,9 +5,14 @@ let Schema = mongoose.Schema;
 
 let AssignmentSchema = Schema({
     id: Number,
-    dateDeRendu: Date,
-    auteur: String,
     nom: String,
+    auteur: String,
+    imageAuteur: String,
+    matiere: String,
+    imageMatiere: String,
+    note: Number,
+    remarques: String,
+    dateDeRendu: Date,
     rendu: Boolean
 });
 
