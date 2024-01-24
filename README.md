@@ -15,7 +15,7 @@ VASSEUR Matthéo
 
 3. Accédez au répertoire du projet :
     ```
-    cd tp1-angular-lord83560/frontend
+    cd assignmentAppProjetFinal-frontend
     ```
 
 4. Installez les dépendances du projet en exécutant la commande suivante :
