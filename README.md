@@ -32,6 +32,9 @@ VASSEUR Matthéo
 
 7. Vous devriez maintenant voir l'application Angular fonctionner sur votre machine.
 
+8. Récupérez le projet backend à partir de la branche "backend" et suivez les étapes.
+
+9. Une fois le backend lancé, rechargez la page pour récupérer les données.
 
 
 ## Identifiants de connexion utilisateur 
@@ -50,5 +53,6 @@ VASSEUR Matthéo
 - Liste de login/passwords valides codée en dur dans le service d'authentification.
 - Ajout de la propriété "Auteur" au modèle des Assignments, qui sera l'utilisateur connecté lors de la création de l'assignment.
 - Système de tri des assignments par date de rendu et date de création, ainsi qu'une barre de recherche pour rechercher le titre de l'assignment ou l'auteur.
+- Système dynamique d'assignments affichés par pages.
 - Utilisation d'un formulaire de type Stepper pour l'ajout d'Assignments.
 - Ajout de messages de notification avec SnackBar Material.
