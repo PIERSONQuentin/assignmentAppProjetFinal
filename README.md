@@ -43,16 +43,7 @@ VASSEUR Matthéo
     - username : user
     - password : user123
 
-## Fonctionalités 
-
-- sécurité sur la saisie pour obliger la saisie dans les champs de connexion. 
-- alerte dans le cas où les identifiants sont incorrects. 
-- gestion de droit utilisateur avec accès aux options de modification et suppression si admn. 
-- routage de la page "auth" quand on clique sur le bouton de connexion. 
-- bouton de déconnexion qui apparait uniquement lorsque l'utilisateur est connecté (le bouton de connexion est caché lorsque connecté). 
-- bloquage des fonctionnalités de suppression et modification lorsque l'utilisateur ne possède pas le rôle admin.
-
-## Fonctionnalités ajoutées
+## Fonctionnalités
 - 1001 assignments dans la base de données.
 - Formulaire de login/password et bouton de connexion dans la toolbar. Une fois loggué, le formulaire disparait et seul un bouton de déconnexion apparait.
 - Les utilisateurs autorisés peuvent modifier et ajouter des assignments. Les administrateurs peuvent également supprimer des assignments. Les utilisateurs non connectés peuvent uniquement consulter les assignments.
