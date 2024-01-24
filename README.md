@@ -1,11 +1,8 @@
 # Angular : rendu n°2
+
 Repository où déposer le projet n°2 Angular
 
-### Nom[^1] :
-
-### Prénom[^2] : 
-
-## A faire[^3]
+## A faire
 - [ ] Suivre le cours jusqu'à la page 180
 - [ ] Intégrer toolbar et navbar du rendu n°1
 - [ ] Identification par **login/password**
@@ -17,15 +14,11 @@ Repository où déposer le projet n°2 Angular
   - Le user peut voir le détail des assignment
   - Si on n'est pas logué on ne peut ni voir le détail, ni éditer
 
-
-[^1]: à remplir
-[^2]: à remplir
-[^3]: vous pouvez cocher les tâches qui ont été faites en utilisant la syntaxe `[x]` dans le markdown
-
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/CC0AgZ2W)
-# PIERSON Quentin
+## PIERSON Quentin
 # AssignmentApp
+
 Tp 1 sur angular pour réaliser une liste de devoirs, un formulaire d'ajout de devoirs, d'une toolbar et d'une sidebar.
+
 ## Modifications 
 - opérations effecutés jusqu'au transparent 116.
 - mise en place de la toolbar avec :
@@ -61,4 +54,16 @@ Tp 1 sur angular pour réaliser une liste de devoirs, un formulaire d'ajout de d
         - password : user123
 - modification de la toolbar pour implémenter le routage de la page "auth" quand on clique sur le bouton de connexion. 
 - mise en place d'un bouton de déconnexion qui apparait uniquement lorsque l'utilisateur est connecté (le bouton de connexion est caché lorsque connecté). 
-- mise en place du bloquage des fonctionnalités de suppression et modification lorsque l'utilisateur ne possède pas le rôle admin. 
+- mise en place du bloquage des fonctionnalités de suppression et modification lorsque l'utilisateur ne possède pas le rôle admin.
+
+## Fonctionnalités ajoutées
+- Au moins 1000 assignments dans la base de données.
+- Formulaire de login/password et bouton de connexion dans la toolbar. Une fois loggué, le formulaire disparait et seul un bouton de déconnexion apparait.
+- Les utilisateurs autorisés peuvent modifier et ajouter des assignments. Les administrateurs peuvent également supprimer des assignments. Les utilisateurs non connectés peuvent uniquement consulter les assignments.
+- Liste de login/passwords valides codée en dur dans le service d'authentification.
+- Ajout de la propriété "Auteur" au modèle des Assignments, qui sera l'utilisateur connecté lors de la création de l'assignment.
+- Système de tri des assignments par date de rendu et date de création, ainsi qu'une barre de recherche pour rechercher le titre de l'assignment ou l'auteur.
+- Utilisation d'un formulaire de type Stepper pour l'ajout d'Assignments.
+- Ajout de messages de notification avec SnackBar Material.
+
+Note: La fonctionnalité de Tableau de Bord Analytique de assignments créés par utilisateur avec un graphique n'est pas possible car le système de récupération des données n'est pas encore mis en place.
