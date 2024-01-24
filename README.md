@@ -46,12 +46,20 @@ VASSEUR Matthéo
     - username : user
     - password : user123
 
+## Modifications du modèle des Assignments 
+
+- Ajout de la propriété "Auteur" au modèle des Assignments, qui sera l'utilisateur connecté lors de la création de l'assignment.
+- Ajout de la propriété "imageAuteur" au modèle des Assignments, qui sera l'image lié à l'utilisateur connecté lors de la création de l'assignment.
+- Ajout de la propriété "matière" au modèle des Assignments, qui sera le nom de la matière sélectionné lors de la création de l'assignment.
+- Ajout de la propriété "imageMatiere" au modèle des Assignments, qui sera l'image de la matière sélectionné lors de la création de l'assignment.
+- Ajout de la propriété "note" au modèle des Assignments, qui sera la note attribué a l'assignments. Il est possible qu'un assignment ne soit pas noté
+- Ajout de la propriété "remarques" au modèle des Assignments, qui sera les remarques concernant l'assignment.
+
 ## Fonctionnalités
-- 1001 assignments dans la base de données.
+- 2000 assignments dans la base de données.
 - Formulaire de login/password et bouton de connexion dans la toolbar. Une fois loggué, le formulaire disparait et seul un bouton de déconnexion apparait.
 - Les utilisateurs autorisés peuvent modifier et ajouter des assignments. Les administrateurs peuvent également supprimer des assignments. Les utilisateurs non connectés peuvent uniquement consulter les assignments.
-- Liste de login/passwords valides codée en dur dans le service d'authentification.
-- Ajout de la propriété "Auteur" au modèle des Assignments, qui sera l'utilisateur connecté lors de la création de l'assignment.
+- Liste de login/passwords valides codée en dur dans le service d'authentification.  
 - Système de tri des assignments par date de rendu et date de création, ainsi qu'une barre de recherche pour rechercher le titre de l'assignment ou l'auteur.
 - Système dynamique d'assignments affichés par pages.
 - Utilisation d'un formulaire de type Stepper pour l'ajout d'Assignments.

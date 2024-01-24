@@ -71,6 +71,11 @@ export class AssignmentsService {
       newAssignment.id = a.id;
       newAssignment.nom = a.nom;
       newAssignment.auteur = a.auteur;
+      newAssignment.imageAuteur = a.imageAuteur;
+      newAssignment.matiere = a.matiere;
+      newAssignment.imageMatiere = a.imageMatiere;
+      newAssignment.note = a.note;
+      newAssignment.remarques = a.remarques;
       newAssignment.dateDeRendu = new Date(a.dateDeRendu);
       newAssignment.rendu = a.rendu;
       this.addAssignment(newAssignment).subscribe(message => console.log(message));
