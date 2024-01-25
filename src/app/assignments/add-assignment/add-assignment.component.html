@@ -1,15 +1,49 @@
-<form ngForm (submit)="onSubmit(); assignmentForm.reset()" #assignmentForm class="form">
-    <mat-form-field class="input">
-      <input matInput [(ngModel)]="nomDevoir" name="nom" placeholder="Nom du devoir" required>
-    </mat-form-field>
-  
-    <mat-form-field class="input">
-      <input matInput [matDatepicker]="picker" placeholder="Date de rendu" 
-      [(ngModel)]="dateDeRendu" name="date" required>
-      
-      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
-    </mat-form-field>
-  
-    <button mat-stroked-button color="primary">Ajouter un devoir</button>
-</form>
+<mat-horizontal-stepper linear>
+  <!-- Étape 1 -->
+  <mat-step [completed]="completedSteps[0]">
+    <form [formGroup]="assignmentForm">
+      <ng-template matStepLabel>Étape 1</ng-template>
+      <mat-form-field class="input">
+        <input matInput formControlName="nomDevoir" placeholder="Nom du devoir">
+      </mat-form-field>
+      <div>
+        <button mat-button color="primary" [disabled]="assignmentForm.controls['nomDevoir'].invalid" matStepperNext>Étape suivante</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <!-- Étape 2 -->
+  <mat-step [completed]="completedSteps[1]">
+    <form [formGroup]="assignmentForm">
+      <ng-template matStepLabel>Étape 2</ng-template>
+      <mat-form-field class="input">
+        <input
+          matInput
+          [matDatepicker]="picker"
+          formControlName="dateDeRendu"
+          placeholder="Date de rendu"
+        >
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <div>
+        <button mat-button color="warn" matStepperPrevious>Étape précédente</button>
+        <button mat-button color="primary" [disabled]="assignmentForm.controls['dateDeRendu'].invalid" matStepperNext>Étape suivante</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <!-- Étape 3 -->
+  <mat-step [completed]="completedSteps[2]">
+    <form [formGroup]="assignmentForm">
+      <ng-template matStepLabel>Étape 3</ng-template>
+      <mat-form-field class="input">
+        <input matInput formControlName="matiere" placeholder="Matière">
+      </mat-form-field>
+      <div>
+        <button mat-button color="warn" matStepperPrevious>Étape précédente</button>
+        <button mat-button color="primary" [disabled]="assignmentForm.controls['matiere'].invalid" (click)="onSubmit()">Terminer</button>
+      </div>
+    </form>
+  </mat-step>
+</mat-horizontal-stepper>

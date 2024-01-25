@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AssignmentsService } from 'src/app/shared/assignments.service';
 import { Assignment } from '../assignments.model';
+import { NotificationService } from 'src/app/shared/notification.service';
 
 @Component({
   selector: 'app-edit-assignment',
@@ -16,7 +17,8 @@ export class EditAssignmentComponent implements OnInit {
   constructor(
     private assignmentsService: AssignmentsService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private notificationService: NotificationService
   ) {}
 
   ngOnInit(): void {
@@ -49,6 +51,9 @@ export class EditAssignmentComponent implements OnInit {
     this.assignment.dateDeRendu = this.dateDeRendu;
     this.assignmentsService.updateAssignment(this.assignment)
       .subscribe((message) => {
+
+         // notification pour afficher un message
+        this.notificationService.show('Assignment mis à jour avec succès.');
         console.log(message);
  
         // navigation vers la home page
