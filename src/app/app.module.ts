@@ -40,7 +40,7 @@ import { SortAssignmentComponent } from './assignments/sort-assignment/sort-assi
 import { MatSelectModule } from '@angular/material/select';
 import { HomeComponent } from './assignments/home/home.component';
 
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
