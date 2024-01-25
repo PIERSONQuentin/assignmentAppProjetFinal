@@ -62,6 +62,8 @@ VASSEUR Matthéo
 - Liste de login/passwords valides codée en dur dans le service d'authentification.  
 - Système de tri des assignments par date de rendu et date de création, ainsi qu'une barre de recherche pour rechercher le titre de l'assignment ou l'auteur.
 - Système dynamique d'assignments affichés par pages.
+- Ajout d'une page d'accueil permettant l'accès rapide aux différentes fonctionnalités de l'application.
+- Ajout de la vérification du rôle de l'utilisateur pour afficher le bouton de génération de données et/ou de création d'assignment.
 
 ## Fonctionnalités réalisés par Matthéo VASSEUR
 

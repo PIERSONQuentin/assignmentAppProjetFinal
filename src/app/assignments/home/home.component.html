@@ -10,6 +10,6 @@
     <div class="access">
         <button mat-stroked-button color="primary" routerLink="/assignments">Consulter les assignments</button>
         <button mat-stroked-button color="primary" *ngIf="isLoggedIn()" routerLink="/add-assignment">Créer un assignment</button>
-        <button mat-stroked-button color="primary" routerLink="/test">Générer les données de test</button>
+        <button mat-stroked-button color="primary" *ngIf="isAdmin()" routerLink="/test">Générer les données de test</button>
     </div>
 </div>

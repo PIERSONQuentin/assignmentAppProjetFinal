@@ -15,4 +15,14 @@ export class HomeComponent implements OnInit {
   isLoggedIn() {
     return this.authService.isLogged();
   }
+
+  isAdmin() {
+    let role = this.authService.getCurrentUserRole();
+
+    if(role == 'admin') {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
