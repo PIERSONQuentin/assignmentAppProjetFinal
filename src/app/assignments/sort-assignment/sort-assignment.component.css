@@ -2,9 +2,21 @@
 .search-form {
   display: flex;
   flex-direction: row;
-  margin: 5px;
+  justify-content: space-around;
   align-items: center;
+  margin: 0 auto;
   padding-top: 20px;
+  width: 100%;
+  background-color: #fafafa;
+}
+
+.search-form .content {
+  flex-grow: 1;
+  margin: 0 5px;
+}
+
+.full-width {
+  width: 25%;
 }
 
 .separator {
@@ -12,10 +24,6 @@
   height: 1px;
   background-color: #414141;
   margin: 10px;
-}
-
-.spacer {
-  flex: 0.02 1 auto;
 }
 
 .resetbtn {
