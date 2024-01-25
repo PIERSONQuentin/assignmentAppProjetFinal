@@ -1,14 +1,19 @@
 .container {
-    display: flex;
-    flex-direction: column;
-  }
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+  justify-content: center; /* Ajouté pour centrer verticalement */
+  align-items: center; /* Ajouté pour centrer horizontalement */
+}
 
-  .form {
-    display:flex;
-    flex-direction: column;
-    margin:5px;
-    align-items: center;
- }
+.form {
+  width: 100%;
+  display:flex;
+  flex-direction: column;
+  margin:5px;
+  align-items: center;
+  justify-items: center;
+}
 
  .input {
     width: 25%;

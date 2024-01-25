@@ -38,6 +38,7 @@ import '@angular/localize/init';
 import { SortAssignmentComponent } from './assignments/sort-assignment/sort-assignment.component';
 
 import { MatSelectModule } from '@angular/material/select';
+import { HomeComponent } from './assignments/home/home.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { MatSelectModule } from '@angular/material/select';
     AuthComponent,
     AssignmentTestComponent,
     PaginatorComponent,
-    SortAssignmentComponent
+    SortAssignmentComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

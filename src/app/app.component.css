@@ -40,6 +40,7 @@ section {
 
   mat-sidenav-container{
     height: calc(205vh - 115vh); 
+
   }
 
   mat-sidenav {
@@ -48,9 +49,5 @@ section {
   }
 
   mat-sidenav-content {
-    background-color: white;
-  }
-
-  .sidenavBtn {
-    width: 100%;
+    /*background-color: white;*/
   }
