@@ -10,10 +10,11 @@ import { EditAssignmentComponent } from './assignments/edit-assignment/edit-assi
 import { AuthComponent } from './auth/auth.component'; 
 import { Assignment } from './assignments/assignments.model';
 import { AssignmentTestComponent } from './assignments/assignment-test/assignment-test.component';
+import { HomeComponent } from './assignments/home/home.component';
 
 const routes: Routes = [
-  { path: '', component: AssignmentsComponent}, 
-  { path: 'home', component: AssignmentsComponent},
+  { path: '', component: HomeComponent}, 
+  { path: 'home', component: HomeComponent},
   { path: 'assignments', component: AssignmentsComponent },
   { path: 'add-assignment', component: AddAssignmentComponent }, 
   { path: 'assignment/:id', component: AssignmentDetailComponent },

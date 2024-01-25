@@ -1,0 +1,15 @@
+<div class="container">
+    <div class="title">
+        <h1>Bienvenue sur l'application de gestion des devoirs</h1>
+        <p>Application réalisé par PIERSON Quentin et VASSEUR Matthéo dans le cadre du projet final Angular</p>
+        <p>Vous pouvez consulter les devoirs, en ajouter, les modifier ou les supprimer.</p>
+    </div>
+
+    <div class="spacer"></div>
+
+    <div class="access">
+        <button mat-stroked-button color="primary" routerLink="/assignments">Consulter les assignments</button>
+        <button mat-stroked-button color="primary" *ngIf="isLoggedIn()" routerLink="/add-assignment">Créer un assignment</button>
+        <button mat-stroked-button color="primary" *ngIf="isAdmin()" routerLink="/test">Générer les données de test</button>
+    </div>
+</div>

@@ -19,6 +19,16 @@ export class AppComponent {
     return this.authService.isLogged();
   }
 
+  isAdmin() {
+    let role = this.authService.getCurrentUserRole();
+
+    if(role == 'admin') {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   logout() {
     this.authService.logOut();
   }

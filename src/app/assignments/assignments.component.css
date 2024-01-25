@@ -11,19 +11,50 @@
    flex-direction: column;
  }
 
- .ajouterBtn {
-   align-self: flex-end;
-   background-color: white;
-   color: #414141;
-   border: solid 1px;
-   border-color: #414141;
- }
+.table {
+  width: 100%;
+  height: 100%;
+}
 
- .pagination {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   margin: 10px;
- }
+.table td, th {
+  width: 15%; 
+  text-align: center;
+}
 
+.table td {
+  height: 150px;
+}
+
+.table tr:hover td {
+  background-color: #eeeeee;
+}
+
+ .tdCenter {
+   text-align: center;
+ }
  
+.btn-info {
+  color: #414141;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-info.eye:hover {
+  background-color: #93cd2f;
+}
+
+.btn-info.edit:hover {
+  background-color: #f0ad4e;
+}
+
+.btn-info.delete:hover {
+  background-color: #d9534f;
+}
+
+.btn-info:hover {
+    color: white;
+}

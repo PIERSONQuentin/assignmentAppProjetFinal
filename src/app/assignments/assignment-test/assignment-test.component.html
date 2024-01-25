@@ -1,6 +1,7 @@
 <!-- créer un bouton pour peuplerbd -->
 <main class="container">
     <form class="form">
-        <button class="input" mat-stroked-button color="primary" (click)="peuplerBD()">Peupler la base de données</button>
+        <p>Ajoutez 1000 assignments à la base de données en cliquant sur ce bouton.</p>
+        <button class="input" *ngIf="isAdmin()"  mat-stroked-button color="primary" (click)="peuplerBD()">Peupler la base de données</button>
     </form>
 </main>
