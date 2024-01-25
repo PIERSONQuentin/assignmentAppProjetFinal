@@ -3,6 +3,7 @@ import { AssignmentsService } from '../shared/assignments.service';
 import { Assignment } from './assignments.model';
 import { PaginationService } from '../shared/pagination.service';
 import { SortAssignmentComponent } from './sort-assignment/sort-assignment.component';
+import { AuthService } from '../shared/auth.service';
 
 @Component({
   selector: 'app-assignments',
@@ -32,8 +33,33 @@ export class AssignmentsComponent implements OnInit {
 
   constructor (
     private assignmentService: AssignmentsService,
-    private paginationService: PaginationService
+    private paginationService: PaginationService, 
+    private authService: AuthService
   ) {}
+
+  isLogged() {
+    return this.authService.isLogged();
+  }
+
+  isAdmin() {
+    if(!this.isLogged()) return false;
+
+    let role = this.authService.getCurrentUserRole();
+
+    if(role == 'admin') {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  calculateHeight() {
+    if(this.isAdmin()) {
+      return (100 / 3) + "%";
+    } else {
+      return "100%";
+    }
+  }
   
   ngOnInit(): void {
     this.paginationService.currentPageObservable.subscribe(page => {

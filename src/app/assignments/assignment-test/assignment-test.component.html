@@ -2,6 +2,6 @@
 <main class="container">
     <form class="form">
         <p>Ajoutez 1000 assignments à la base de données en cliquant sur ce bouton.</p>
-        <button class="input" mat-stroked-button color="primary" (click)="peuplerBD()">Peupler la base de données</button>
+        <button class="input" *ngIf="isAdmin()"  mat-stroked-button color="primary" (click)="peuplerBD()">Peupler la base de données</button>
     </form>
 </main>

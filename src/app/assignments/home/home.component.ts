@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   }
 
   isAdmin() {
+    if(!this.isLoggedIn()) return false;
     let role = this.authService.getCurrentUserRole();
 
     if(role == 'admin') {
