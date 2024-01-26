@@ -16,9 +16,10 @@ export class AddAssignmentComponent implements OnInit {
   dateDeRendu: Date = new Date();
   matiere: string = "";
 
-  assignmentForm: FormGroup;
+
   firstFormGroup!: FormGroup;
   secondFormGroup!: FormGroup;
+  thirdFormGroup!: FormGroup;
 
   formEdit : boolean = true;
 
@@ -34,6 +35,9 @@ export class AddAssignmentComponent implements OnInit {
 
     this.secondFormGroup = this.formBuilder.group({
       dateDeRendu: [new Date(), Validators.required],
+    });
+
+    this.thirdFormGroup = this.formBuilder.group({
       matiere: ['', Validators.required],
     });
   }
@@ -43,11 +47,7 @@ export class AddAssignmentComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.assignmentForm.invalid) {
-      // Affichez un message d'erreur
-      this.notificationService.show("Veuillez remplir tous les champs obligatoires ou corriger les erreurs.");
-      return;
-    }
+
 
     const newAssignement = new Assignment();
     newAssignement.id = Math.floor(Math.random() * 1000000);
@@ -60,9 +60,6 @@ export class AddAssignmentComponent implements OnInit {
     this.assignmentsService.addAssignment(newAssignement).subscribe((message) => {
       // Notification pour afficher un message
       this.notificationService.show('Assignment ajouté avec succès.');
-  
-      // Réinitialisez le formulaire
-      this.assignmentForm.reset();
 
       console.log(message);
     });
