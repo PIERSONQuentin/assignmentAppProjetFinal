@@ -11,7 +11,7 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatDividerModule } from '@angular/material/divider';
 import { MatInputModule } from '@angular/material/input';
 //import { RenduDirective } from './shared/rendu.directive' 
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
@@ -38,6 +38,8 @@ import '@angular/localize/init';
 import { SortAssignmentComponent } from './assignments/sort-assignment/sort-assignment.component';
 
 import { MatSelectModule } from '@angular/material/select';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatStepperModule } from '@angular/material/stepper';
 import { HomeComponent } from './assignments/home/home.component';
 
 import { MatTableModule } from '@angular/material/table';
@@ -76,6 +78,9 @@ import { MatTableModule } from '@angular/material/table';
     HttpClientModule,
     MatPaginatorModule,
     MatSelectModule,
+    MatSnackBarModule,
+    ReactiveFormsModule,
+    MatStepperModule,
     MatTableModule
   ],
   providers: [],
