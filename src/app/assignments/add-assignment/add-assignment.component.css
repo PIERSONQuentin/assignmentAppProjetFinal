@@ -1,81 +1,81 @@
 .form {
-    display:flex;
-    flex-direction: column;
-    margin:5px;
- }
- 
- .input {
-    width: 100%;
- }
+  display:flex;
+  flex-direction: column;
+  margin:5px;
+}
 
- /* Stepper  Step-Box style */
- ::ng-deep .mat-primary.mat-step-header{
-    background-color: rgb(255, 255, 255);
-    border-radius: 50px;
-    border: 1px solid rgba(155, 175, 194, 0.377);
-    height: 50px;
-  }
+.input {
+  width: 100%;
+}
 
-  /* Stepper Step-Box Hover Effect */
-  ::ng-deep .mat-primary.mat-step-header:hover:not([aria-disabled]),
-  ::ng-deep .mat-primary.mat-step-header:hover([aria-disabled]){
-    background-color: rgba(154, 191, 226, 0.74);
-    border: 1px solid #1b85ff;
-  }
+/* Stepper  Step-Box style */
+::ng-deep .mat-primary.mat-step-header{
+  background-color: rgb(255, 255, 255);
+  border-radius: 50px;
+  border: 1px solid rgba(155, 175, 194, 0.377);
+  height: 50px;
+}
 
-  /* Stepper Step-Box Focus Effect */
-  ::ng-deep .mat-primary.mat-step-header.cdk-keyboard-focused,
-  ::ng-deep .mat-primary.mat-step-header.cdk-program-focused {
-   background-color: rgba(27, 133, 255, 0.25);
-   border: 1px solid rgba(154, 191, 226, 0.336);
-  }
+/* Stepper Step-Box Hover Effect */
+::ng-deep .mat-primary.mat-step-header:hover:not([aria-disabled]),
+::ng-deep .mat-primary.mat-step-header:hover([aria-disabled]){
+  background-color: rgba(154, 191, 226, 0.74);
+  border: 1px solid #1b85ff;
+}
 
 /* Stepper Step-Box Focus Effect */
-  /* Deselected Step Box */
-  ::ng-deep .mat-primary.mat-step-header.mat-horizontal-stepper-header {
-   &[aria-selected="false"].mat-step-header {
-      background-color: rgb(255, 255, 255);
-   }
-  }
+::ng-deep .mat-primary.mat-step-header.cdk-keyboard-focused,
+::ng-deep .mat-primary.mat-step-header.cdk-program-focused {
+ background-color: rgba(27, 133, 255, 0.25);
+ border: 1px solid rgba(154, 191, 226, 0.336);
+}
 
-  /* Stepper Step-Box Focus Effect */
-  /* Selected Step Box */
-  ::ng-deep .mat-primary.mat-step-header.mat-horizontal-stepper-header {
-   &[aria-selected="true"].mat-step-header {
-      background-color: rgba(154, 191, 226, 0.336);
-      border: 1px soid #1b85ff!important;
-      backdrop-filter: blur(5px);
-   }
-  }
+/* Stepper Step-Box Focus Effect */
+/* Deselected Step Box */
+::ng-deep .mat-primary.mat-step-header.mat-horizontal-stepper-header {
+ &[aria-selected="false"].mat-step-header {
+    background-color: rgb(255, 255, 255);
+ }
+}
 
-  /* Change style in edit step */
-  ::ng-deep .mat-primary.mat-step-header.mat-horizontal-stepper-header:has(.mat-step-icon-state-edit) {
-    background-color: rgba(0, 128, 0, 0.267)!important;
-    border: 1px solid green!important;
+/* Stepper Step-Box Focus Effect */
+/* Selected Step Box */
+::ng-deep .mat-primary.mat-step-header.mat-horizontal-stepper-header {
+ &[aria-selected="true"].mat-step-header {
+    background-color: rgba(154, 191, 226, 0.336);
+    border: 1px soid #1b85ff!important;
     backdrop-filter: blur(5px);
-  }
+ }
+}
 
-  /* Change style in done step */
-  ::ng-deep .mat-primary.mat-step-header.mat-horizontal-stepper-header:has(.mat-step-icon-state-done) {
-    background-color: rgba(0, 128, 0, 0.267)!important;
-    border: 1px solid green!important;
-  }
+/* Change style in edit step */
+::ng-deep .mat-primary.mat-step-header.mat-horizontal-stepper-header:has(.mat-step-icon-state-edit) {
+  background-color: rgba(0, 128, 0, 0.267)!important;
+  border: 1px solid green!important;
+  backdrop-filter: blur(5px);
+}
 
-  /* Change stepper step box label style */
-  ::ng-deep .mat-primary.mat-step-header.mat-step-label {
-    color: black;
-    font-weight: bold;
-    /*font-size: 16px;
-    font-weight: 400;*/
-  }
+/* Change style in done step */
+::ng-deep .mat-primary.mat-step-header.mat-horizontal-stepper-header:has(.mat-step-icon-state-done) {
+  background-color: rgba(0, 128, 0, 0.267)!important;
+  border: 1px solid green!important;
+}
 
-  /* Change label color when tab is selected */
-  ::ng-deep .mat-primary.mat-step-header.mat-step-label-selected {
-    color: #0665d2!important;
-  }
+/* Change stepper step box label style */
+::ng-deep .mat-primary.mat-step-header.mat-step-label {
+  color: black;
+  font-weight: bold;
+  /*font-size: 16px;
+  font-weight: 400;*/
+}
 
-  /* Change stepper step-box active text when tab is done */
-  ::ng-deep .mat-primary.mat-step-header.mat-step-label.mat-step-label-active {
-    color: #39a805!important;
-    font-weight: 600 !important;
-  }
+/* Change label color when tab is selected */
+::ng-deep .mat-primary.mat-step-header.mat-step-label-selected {
+  color: #0665d2!important;
+}
+
+/* Change stepper step-box active text when tab is done */
+::ng-deep .mat-primary.mat-step-header.mat-step-label.mat-step-label-active {
+  color: #39a805!important;
+  font-weight: 600 !important;
+}
