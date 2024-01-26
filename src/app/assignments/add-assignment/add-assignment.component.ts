@@ -17,8 +17,10 @@ export class AddAssignmentComponent implements OnInit {
   matiere: string = "";
 
   assignmentForm: FormGroup;
-  isLinear = true;
-  completedSteps: boolean[] = [false, false, false]; // Tableau pour suivre les étapes complétées
+  firstFormGroup!: FormGroup;
+  secondFormGroup!: FormGroup;
+
+  formEdit : boolean = true;
 
   constructor(private assignmentsService: AssignmentsService,
               private authService: AuthService,
@@ -26,23 +28,18 @@ export class AddAssignmentComponent implements OnInit {
               private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.assignmentForm = this.formBuilder.group({
+    this.firstFormGroup = this.formBuilder.group({
       nomDevoir: ['', Validators.required],
+    });
+
+    this.secondFormGroup = this.formBuilder.group({
       dateDeRendu: [new Date(), Validators.required],
       matiere: ['', Validators.required],
     });
-
-    // Écoutez les changements dans le formulaire pour mettre à jour la complétion des étapes
-    this.assignmentForm.valueChanges.subscribe(() => {
-      this.updateStepCompletion();
-    });
   }
 
-  // Fonction pour mettre à jour la complétion des étapes en fonction du contenu des champs
-  private updateStepCompletion() {
-    this.completedSteps[0] = this.nomDevoir.trim() !== ""; // L'étape 1 est complétée si le champ nomDevoir n'est pas vide
-    this.completedSteps[1] = this.dateDeRendu !== null; // L'étape 2 est complétée si la dateDeRendu est définie
-    this.completedSteps[2] = this.matiere.trim() !== ""; // L'étape 3 est complétée si le champ matiere n'est pas vide
+  editForm(){
+    this.formEdit = !this.formEdit
   }
 
   onSubmit() {
@@ -66,9 +63,6 @@ export class AddAssignmentComponent implements OnInit {
   
       // Réinitialisez le formulaire
       this.assignmentForm.reset();
-
-      // Réinitialisez les étapes complétées
-      this.completedSteps = [false, false, false];
 
       console.log(message);
     });

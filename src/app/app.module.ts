@@ -38,14 +38,11 @@ import '@angular/localize/init';
 import { SortAssignmentComponent } from './assignments/sort-assignment/sort-assignment.component';
 
 import { MatSelectModule } from '@angular/material/select';
-<<<<<<< HEAD
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatStepperModule } from '@angular/material/stepper';
-=======
 import { HomeComponent } from './assignments/home/home.component';
 
 import {MatTableModule} from '@angular/material/table';
->>>>>>> 1f7669f6a5a04dec968510b312ee47873985833e
 
 @NgModule({
   declarations: [
@@ -81,13 +78,10 @@ import {MatTableModule} from '@angular/material/table';
     HttpClientModule,
     MatPaginatorModule,
     MatSelectModule,
-<<<<<<< HEAD
     MatSnackBarModule,
     ReactiveFormsModule,
-    MatStepperModule
-=======
+    MatStepperModule,
     MatTableModule
->>>>>>> 1f7669f6a5a04dec968510b312ee47873985833e
   ],
   providers: [],
   bootstrap: [AppComponent]
