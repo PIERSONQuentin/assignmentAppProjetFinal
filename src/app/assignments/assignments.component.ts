@@ -156,7 +156,8 @@ export class AssignmentsComponent implements OnInit {
 
     return assignments.filter(assignment => {
       return (assignment.nom && assignment.nom.toLowerCase().includes(searchTerm) 
-      || assignment.auteur && assignment.auteur.toLowerCase().includes(searchTerm));
+      || assignment.auteur && assignment.auteur.toLowerCase().includes(searchTerm)
+      || assignment.matiere && assignment.matiere.toLowerCase().includes(searchTerm));
     });
   }
 

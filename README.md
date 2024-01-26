@@ -60,7 +60,7 @@ VASSEUR Matthéo
 - Formulaire de login/password et bouton de connexion dans la toolbar. Une fois loggué, le formulaire disparait et seul un bouton de déconnexion apparait.
 - Les utilisateurs autorisés peuvent modifier et ajouter des assignments. Les administrateurs peuvent également supprimer des assignments. Les utilisateurs non connectés peuvent uniquement consulter les assignments.
 - Liste de login/passwords valides codée en dur dans le service d'authentification.  
-- Système de tri des assignments par date de rendu et date de création, ainsi qu'une barre de recherche pour rechercher le titre de l'assignment ou l'auteur.
+- Système de tri des assignments par date de rendu et date de création, ainsi qu'une barre de recherche pour rechercher le titre de l'assignment, l'auteur ou la matière.
 - Système dynamique d'assignments affichés par pages.
 - Ajout d'une page d'accueil permettant l'accès rapide aux différentes fonctionnalités de l'application.
 - Ajout de la vérification du rôle de l'utilisateur pour afficher le bouton de génération de données et/ou de création d'assignment et les liens dans la barre latérale.

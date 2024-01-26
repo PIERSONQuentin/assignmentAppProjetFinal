@@ -16,10 +16,12 @@
   height: 100%;
 }
 
-.table td, th {
+.table td, .table th {
   width: 15%; 
   text-align: center;
 }
+
+
 
 .table td {
   height: 150px;
