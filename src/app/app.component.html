@@ -16,23 +16,14 @@
 <mat-sidenav-container>
     <mat-sidenav [(opened)]="opened" mode="side">
         <div class="pages">
-            <button mat-button class="sidenavBtn" routerLink="/assignments">Liste des devoirs</button>
-            <button mat-button class="sidenavBtn" *ngIf="isLogged()" routerLink="/add-assignment">Ajout d'un devoir</button>
-            <button mat-button class="sidenavBtn" *ngIf="isAdmin()" routerLink="/test">Génération de données de test</button>
+            <button mat-button class="sidenavBtn" routerLink="/assignments"><mat-icon>assignment</mat-icon>&nbsp;Liste des devoirs</button>
+            <button mat-button class="sidenavBtn" *ngIf="isLogged()" routerLink="/add-assignment"><mat-icon>add_box</mat-icon>&nbsp;Ajout d'un devoir</button>
+            <button mat-button class="sidenavBtn" *ngIf="isAdmin()" routerLink="/test"><mat-icon>cloud_upload</mat-icon>&nbsp;Génération de données de test</button>
         </div>
         <div class="options">
-            <button mat-button class="sidenavBtn" *ngIf="isLogged()" routerLink="/profile">
-                <mat-icon>account_circle</mat-icon>
-                <p>Profil</p>
-            </button>
-            <button mat-button class="sidenavBtn" *ngIf="isAdmin()" routerLink="/admin">
-                <mat-icon>supervisor_account</mat-icon>
-                <p>Administration</p>
-            </button>
-            <button mat-button class="sidenavBtn" routerLink="/settings">
-                <mat-icon>settings</mat-icon>
-                <p>Paramètres</p>
-            </button>
+            <button mat-button class="sidenavBtn" *ngIf="isLogged()" routerLink="/profile"><mat-icon>account_circle</mat-icon>&nbsp;Profil</button>
+            <button mat-button class="sidenavBtn" *ngIf="isAdmin()" routerLink="/admin"><mat-icon>supervisor_account</mat-icon>&nbsp;Administration</button>
+            <button mat-button class="sidenavBtn" routerLink="/settings"><mat-icon>settings</mat-icon>&nbsp;Paramètres</button>
         </div>
     </mat-sidenav>
     <mat-sidenav-content>

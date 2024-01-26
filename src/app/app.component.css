@@ -48,7 +48,7 @@ section {
     background-color: #fafafa;
   }
 
-  .mat-drawer-inner-container ng-tns-c37-0 {
+  mat-sidenav div {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -56,15 +56,19 @@ section {
 
   .pages {
     width: 100%;
+    padding-top: 10px;
   }
 
   .options {
+    width: 100%;
     display: flex;
     flex-direction: row;
+    position: absolute;
+    bottom: 0;
   }
 
   .sidenavBtn {
     width: 100%;
-    display: flex;
-    flex-direction: column;
+    height: 100%;
+    display: flex; 
   }
