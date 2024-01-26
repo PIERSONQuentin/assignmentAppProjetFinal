@@ -44,9 +44,14 @@ section {
   }
 
   mat-sidenav {
-    width:20%;
+    width: 20%;
     background-color: #fafafa;
+  }
+
+  .mat-drawer-inner-container ng-tns-c37-0 {
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
 
   .pages {
