@@ -5,22 +5,38 @@
         <button mat-button class="home" routerLink="/home"> <mat-icon>home</mat-icon></button>
         <a routerLink="/home">{{title}}</a>
         <span class="example-spacer"></span>
-        
+
         <button *ngIf="!isLogged()" mat-button class="login" routerLink="/auth"><mat-icon>login</mat-icon></button>
-        <button *ngIf="isLogged()" mat-button class="logout" routerLink="/home" (click)="logout()"><mat-icon>logout</mat-icon></button>
+        <button *ngIf="isLogged()" mat-button class="logout" routerLink="/home"
+            (click)="logout()"><mat-icon>logout</mat-icon></button>
     </mat-toolbar-row>
 </mat-toolbar>
 
 <!-- SideNav -->
 <mat-sidenav-container>
     <mat-sidenav [(opened)]="opened" mode="side">
-        <button mat-button class="sidenavBtn" routerLink="/assignments">Liste des devoirs</button>
-        <button mat-button class="sidenavBtn" *ngIf="isLogged()" routerLink="/add-assignment">Ajout d'un devoir</button>
-        <button mat-button class="sidenavBtn" *ngIf="isAdmin()" routerLink="/test">Génération de données de test</button>
+        <div class="pages">
+            <button mat-button class="sidenavBtn" routerLink="/assignments">Liste des devoirs</button>
+            <button mat-button class="sidenavBtn" *ngIf="isLogged()" routerLink="/add-assignment">Ajout d'un devoir</button>
+            <button mat-button class="sidenavBtn" *ngIf="isAdmin()" routerLink="/test">Génération de données de test</button>
+        </div>
+        <div class="options">
+            <button mat-button class="sidenavBtn" *ngIf="isLogged()" routerLink="/profile">
+                <mat-icon>account_circle</mat-icon>
+                <p>Profil</p>
+            </button>
+            <button mat-button class="sidenavBtn" *ngIf="isAdmin()" routerLink="/admin">
+                <mat-icon>supervisor_account</mat-icon>
+                <p>Administration</p>
+            </button>
+            <button mat-button class="sidenavBtn" routerLink="/settings">
+                <mat-icon>settings</mat-icon>
+                <p>Paramètres</p>
+            </button>
+        </div>
     </mat-sidenav>
     <mat-sidenav-content>
         <!-- Les composants sont affichées dans le router-outlet grace au routerLink -->
         <router-outlet class="router-outlet"></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>
-
