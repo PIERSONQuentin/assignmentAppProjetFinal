@@ -60,56 +60,6 @@ export class AssignmentsComponent implements OnInit {
       return "100%";
     }
   }
-  /*
-  ngOnInit(): void {
-    this.paginationService.currentPageObservable.subscribe(page => {
-      this.page = page;
-      this.loadPageData(); // Charger les données en fonction de la page actuelle
-    });
-  
-    this.paginationService.currentLimit.subscribe(limit => {
-      this.limit = limit;
-      this.loadPageData(); // Charger les données en fonction de la limite actuelle
-    });
-  }
-
-  loadPageData(): void {
-    this.assignmentService.getAssignmentsPagine(this.page, this.limit)
-      .subscribe(data => {
-        let processedAssignments = data.docs;
-  
-        if (this.sortDate) {
-          processedAssignments = this.sortAssignmentsByDate(processedAssignments, this.sortDate);
-        }
-        if (this.sortRendu) {
-          processedAssignments = this.sortAssignmentsByRendu(processedAssignments, this.sortRendu === 'true');
-        }
-        if (this.sortSearch) {
-          processedAssignments = this.sortAssignmentsBySearch(processedAssignments, this.sortSearch);
-        }
-  
-        this.assignments = processedAssignments;
-        
-        // Gestion de la pagination en fonction des critères de tri
-        this.totalDocs = this.sortDate || this.sortRendu || this.sortSearch ? processedAssignments.length : data.totalDocs;
-        this.totalPages = Math.ceil(this.totalDocs / this.limit);
-  
-        this.nextPage = data.nextPage;
-        this.prevPage = data.prevPage;
-        this.hasPrevPage = data.hasPrevPage;
-        this.hasNextPage = data.hasNextPage;
-    
-        // Mettre à jour les valeurs de pagination dans le service
-        this.paginationService.changeTotalPages(this.totalPages);
-        this.paginationService.changeLimit(this.limit);
-
-        // Mettre à jour le nombre total de documents dans le service si aucun tri n'est appliqué
-        if(!this.sortDate || !this.sortRendu) {
-          this.paginationService.changeTotalDocs(this.totalDocs);
-        }
-      });
-  }  
-  */
 
   ngOnInit(): void {
     // Combine les observables de page et de limite
