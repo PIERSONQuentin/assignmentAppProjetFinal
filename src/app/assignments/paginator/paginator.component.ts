@@ -74,8 +74,6 @@ export class PaginatorComponent implements OnInit {
       return $localize`Page 1 sur 1`;
     }
 
-    console.log(length)
-
     const amountPages = Math.ceil(length / pageSize);
 
     return $localize`Page ${page + 1} sur ${amountPages}`;

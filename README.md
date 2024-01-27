@@ -64,6 +64,7 @@ VASSEUR Matthéo
 - Système dynamique d'assignments affichés par pages.
 - Ajout d'une page d'accueil permettant l'accès rapide aux différentes fonctionnalités de l'application.
 - Ajout de la vérification du rôle de l'utilisateur pour afficher le bouton de génération de données et/ou de création d'assignment et les liens dans la barre latérale.
+- Mise en place d'un centre de contrôle utilisateur dans la barre latérale avec des fonctionnalités disponibles en fonction du rôle de l'utilisateur.
 
 ## Fonctionnalités réalisés par Matthéo VASSEUR
 
