@@ -15,13 +15,12 @@ export class AddAssignmentComponent implements OnInit {
   nomDevoir: string = "";
   dateDeRendu: Date = new Date();
   matiere: string = "";
+  matieres: string[] = [];
+
+  
 
 
-  firstFormGroup!: FormGroup;
-  secondFormGroup!: FormGroup;
-  thirdFormGroup!: FormGroup;
-
-  formEdit : boolean = true;
+  //formEdit : boolean = true;
 
   constructor(private assignmentsService: AssignmentsService,
               private authService: AuthService,
@@ -29,7 +28,7 @@ export class AddAssignmentComponent implements OnInit {
               private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    this.firstFormGroup = this.formBuilder.group({
+    /*this.firstFormGroup = this.formBuilder.group({
       nomDevoir: ['', Validators.required],
     });
 
@@ -39,16 +38,28 @@ export class AddAssignmentComponent implements OnInit {
 
     this.thirdFormGroup = this.formBuilder.group({
       matiere: ['', Validators.required],
-    });
+    });*/
   }
 
-  editForm(){
+  assignmentForm = this.formBuilder.group({
+    firstFormGroup: this.formBuilder.group({
+      nomDevoir: ['', Validators.required],
+    }),
+
+    secondFormGroup: this.formBuilder.group({
+      dateDeRendu: [new Date(), Validators.required],
+    }),
+
+    thirdFormGroup: this.formBuilder.group({
+      matiere: ['', Validators.required],
+    }),
+  })
+
+  /*editForm(){
     this.formEdit = !this.formEdit
-  }
+  }*/
 
-  onSubmit() {
-
-
+  /*onSubmit() {
     const newAssignement = new Assignment();
     newAssignement.id = Math.floor(Math.random() * 1000000);
     newAssignement.nom = this.nomDevoir;
@@ -63,5 +74,24 @@ export class AddAssignmentComponent implements OnInit {
 
       console.log(message);
     });
+  }*/
+
+  // permet d'accéder aux sous formulaires
+  get FirstForm(){
+    return this.assignmentForm.get('firstFormGroup') as FormGroup;
   }
+
+  get SecondForm(){
+    return this.assignmentForm.get('secondFormGroup') as FormGroup;
+  }
+
+  get ThirdForm(){
+    return this.assignmentForm.get('thirdFormGroup') as FormGroup;
+  }
+
+  /*HandleSubmit(){
+    if(this.firstFormGroup.valid){
+      console.log(this.firstFormGroup.value);
+    }
+  }*/
 }
