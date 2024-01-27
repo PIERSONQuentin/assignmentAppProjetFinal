@@ -8,7 +8,6 @@ import { AddAssignmentComponent } from './assignments/add-assignment/add-assignm
 import { AssignmentDetailComponent } from './assignments/assignment-detail/assignment-detail.component';
 import { EditAssignmentComponent } from './assignments/edit-assignment/edit-assignment.component';
 import { AuthComponent } from './auth/auth.component'; 
-import { Assignment } from './assignments/assignments.model';
 import { AssignmentTestComponent } from './assignments/assignment-test/assignment-test.component';
 import { HomeComponent } from './assignments/home/home.component';
 

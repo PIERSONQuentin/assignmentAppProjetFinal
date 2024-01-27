@@ -1,5 +1,17 @@
 #bottom {
     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
+
+.sub-btn {
+    width: 100%;
+}
+
+.container {
+    height: 95%;
+}
+

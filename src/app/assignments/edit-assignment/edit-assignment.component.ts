@@ -12,6 +12,10 @@ import { NotificationService } from 'src/app/shared/notification.service';
 export class EditAssignmentComponent implements OnInit {
   assignment!: Assignment | undefined;
   nomAssignment!: string;
+  auteurAssignment!: string;
+  matiereAssignment!: string;
+  noteAssignment!: number;
+  remarquesAssignment!: string;
   dateDeRendu!: Date;
 
   constructor(
@@ -40,7 +44,12 @@ export class EditAssignmentComponent implements OnInit {
       this.assignment = assignment;
       // Pour pré-remplir le formulaire
       this.nomAssignment = assignment.nom;
+      this.auteurAssignment = assignment.auteur;
+      this.matiereAssignment = assignment.matiere;
+      this.noteAssignment = assignment.note;
+      this.remarquesAssignment = assignment.remarques;
       this.dateDeRendu = assignment.dateDeRendu;
+
     });
   }
   onSaveAssignment() {
@@ -48,7 +57,12 @@ export class EditAssignmentComponent implements OnInit {
  
     // on récupère les valeurs dans le formulaire
     this.assignment.nom = this.nomAssignment;
+    this.assignment.auteur = this.auteurAssignment;
+    this.assignment.matiere = this.matiereAssignment;
+    this.assignment.note = this.noteAssignment;
+    this.assignment.remarques = this.remarquesAssignment;
     this.assignment.dateDeRendu = this.dateDeRendu;
+    
     this.assignmentsService.updateAssignment(this.assignment)
       .subscribe((message) => {
 

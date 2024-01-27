@@ -61,7 +61,7 @@
 
     <!-- Assign column definitions to the table -->
     <tr mat-header-row *matHeaderRowDef="['matiere', 'nom', 'auteur', 'dateDeRendu', 'note', 'rendu', 'actions']"></tr>
-    <tr mat-row *matRowDef="let row; columns: ['matiere', 'nom', 'auteur', 'dateDeRendu', 'note', 'rendu', 'actions']"></tr>
+    <tr mat-row *matRowDef="let row; columns: ['matiere', 'nom', 'auteur', 'dateDeRendu', 'note', 'rendu', 'actions']" [class.hidden-row]="!row"></tr>
   </table>
 
   <app-paginator></app-paginator>

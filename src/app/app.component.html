@@ -21,9 +21,9 @@
             <button mat-button class="sidenavBtn" *ngIf="isAdmin()" routerLink="/test"><mat-icon>cloud_upload</mat-icon>&nbsp;Génération de données de test</button>
         </div>
         <div class="options">
-            <button mat-button class="sidenavBtn" *ngIf="isLogged()" routerLink="/profile"><mat-icon>account_circle</mat-icon>&nbsp;Profil</button>
-            <button mat-button class="sidenavBtn" *ngIf="isAdmin()" routerLink="/admin"><mat-icon>supervisor_account</mat-icon>&nbsp;Administration</button>
-            <button mat-button class="sidenavBtn" routerLink="/settings"><mat-icon>settings</mat-icon>&nbsp;Paramètres</button>
+            <button mat-button class="sidenavBtn" *ngIf="isLogged()"><mat-icon>account_circle</mat-icon>&nbsp;Profil</button>
+            <button mat-button class="sidenavBtn" *ngIf="isAdmin()"><mat-icon>supervisor_account</mat-icon>&nbsp;Administration</button>
+            <button mat-button class="sidenavBtn"><mat-icon>settings</mat-icon>&nbsp;Paramètres</button>
         </div>
     </mat-sidenav>
     <mat-sidenav-content>

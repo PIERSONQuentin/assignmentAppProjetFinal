@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AssignmentsService } from '../shared/assignments.service';
 import { Assignment } from './assignments.model';
 import { PaginationService } from '../shared/pagination.service';
-import { SortAssignmentComponent } from './sort-assignment/sort-assignment.component';
 import { AuthService } from '../shared/auth.service';
+import { combineLatest, startWith } from 'rxjs';
 
 @Component({
   selector: 'app-assignments',
@@ -60,7 +60,7 @@ export class AssignmentsComponent implements OnInit {
       return "100%";
     }
   }
-  
+  /*
   ngOnInit(): void {
     this.paginationService.currentPageObservable.subscribe(page => {
       this.page = page;
@@ -109,6 +109,56 @@ export class AssignmentsComponent implements OnInit {
         }
       });
   }  
+  */
+
+  ngOnInit(): void {
+    // Combine les observables de page et de limite
+    combineLatest([
+      this.paginationService.currentPageObservable.pipe(startWith(this.page)),
+      this.paginationService.currentLimit.pipe(startWith(this.limit))
+    ]).subscribe(([page, limit]) => {
+      this.page = page;
+      this.limit = limit;
+      this.loadPageData();
+    });
+  }
+
+  loadPageData(): void {
+    this.assignmentService.getAssignmentsPagine(this.page, this.limit)
+      .subscribe(data => {
+        let processedAssignments = data.docs;
+  
+        // Application des critères de tri
+        if (this.sortDate) {
+          processedAssignments = this.sortAssignmentsByDate(processedAssignments, this.sortDate);
+        }
+        if (this.sortRendu) {
+          processedAssignments = this.sortAssignmentsByRendu(processedAssignments, this.sortRendu === 'true');
+        }
+        if (this.sortSearch) {
+          processedAssignments = this.sortAssignmentsBySearch(processedAssignments, this.sortSearch);
+        }
+  
+        // Mise à jour conditionnelle pour éviter le clignotement
+        if (JSON.stringify(this.assignments) !== JSON.stringify(processedAssignments)) {
+          this.assignments = processedAssignments;
+        }
+  
+        // Mise à jour des informations de pagination
+        this.totalDocs = data.totalDocs;
+        this.totalPages = Math.ceil(this.totalDocs / this.limit);
+        this.nextPage = data.nextPage;
+        this.prevPage = data.prevPage;
+        this.hasPrevPage = data.hasPrevPage;
+        this.hasNextPage = data.hasNextPage;
+  
+        // Mise à jour des valeurs de pagination dans le service de pagination
+        this.paginationService.changeTotalPages(this.totalPages);
+        this.paginationService.changeLimit(this.limit);
+        this.paginationService.changeTotalDocs(this.totalDocs);
+      });
+  }
+  
   
   
   getAssignments() {
