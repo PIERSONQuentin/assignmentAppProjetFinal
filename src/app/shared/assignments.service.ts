@@ -66,7 +66,7 @@ export class AssignmentsService {
     return this.http.delete(url);
   }
 
-  /*peuplerBD() {
+  peuplerBD() {
     bdInitialAssignments.forEach(a => {
       const newAssignment = new Assignment();
       newAssignment.id = a.id;
@@ -81,20 +81,6 @@ export class AssignmentsService {
       newAssignment.rendu = a.rendu;
       this.addAssignment(newAssignment).subscribe(message => console.log(message));
     })
-  }*/
-
-  peuplerBD() {
-    bdInitialAssignments.forEach(a => {
-      const newAssignment = new Assignment(
-        a.id,
-        a.nom,
-        a.auteur,
-        new Date(a.dateDeRendu),
-        a.rendu,
-        a.matiere
-      );
-      this.addAssignment(newAssignment).subscribe(message => console.log(message));
-    });
   }
   
 }
