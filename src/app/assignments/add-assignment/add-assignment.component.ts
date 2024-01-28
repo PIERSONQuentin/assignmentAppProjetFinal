@@ -14,13 +14,8 @@ export class AddAssignmentComponent implements OnInit {
 
   nomDevoir: string = "";
   dateDeRendu: Date = new Date();
-  matiere: string = "";
-  matieres: string[] = [];
+  matieres: string[] = ["Management SI", "Gestion de projet", "Fonctionnement d'un SGBD"];
 
-  
-
-
-  //formEdit : boolean = true;
 
   constructor(private assignmentsService: AssignmentsService,
               private authService: AuthService,
@@ -28,17 +23,7 @@ export class AddAssignmentComponent implements OnInit {
               private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
-    /*this.firstFormGroup = this.formBuilder.group({
-      nomDevoir: ['', Validators.required],
-    });
 
-    this.secondFormGroup = this.formBuilder.group({
-      dateDeRendu: [new Date(), Validators.required],
-    });
-
-    this.thirdFormGroup = this.formBuilder.group({
-      matiere: ['', Validators.required],
-    });*/
   }
 
   assignmentForm = this.formBuilder.group({
@@ -55,43 +40,43 @@ export class AddAssignmentComponent implements OnInit {
     }),
   })
 
-  /*editForm(){
-    this.formEdit = !this.formEdit
-  }*/
+  onSubmit() {
+    if (this.assignmentForm.valid) {
+      // Créez un nouvel assignment avec les données du formulaire
+      const newAssignment = new Assignment(
+        Math.floor(Math.random() * 1000000),
+        this.assignmentForm.get('firstFormGroup.nomDevoir').value,
+        this.authService.getCurrentUser().username,
+        this.assignmentForm.get('secondFormGroup.dateDeRendu').value,
+        false,
+        this.assignmentForm.get('thirdFormGroup.matiere').value
+      );
 
-  /*onSubmit() {
-    const newAssignement = new Assignment();
-    newAssignement.id = Math.floor(Math.random() * 1000000);
-    newAssignement.nom = this.nomDevoir;
-    newAssignement.auteur = this.authService.getCurrentUser().username;
-    newAssignement.dateDeRendu = this.dateDeRendu;
-    newAssignement.rendu = false;
-    newAssignement.matiere = this.matiere;
+      // Appelez la méthode addAssignment() de votre service pour ajouter l'assignment dans la BDD
+      this.assignmentsService.addAssignment(newAssignment).subscribe(() => {
+        // Réinitialisez le formulaire après l'ajout
+        this.assignmentForm.reset();
 
-    this.assignmentsService.addAssignment(newAssignement).subscribe((message) => {
-      // Notification pour afficher un message
-      this.notificationService.show('Assignment ajouté avec succès.');
+        // Notification pour afficher un message
+        this.notificationService.show('Assignment ajouté avec succès.');
 
-      console.log(message);
-    });
-  }*/
+        // Ajoutez un console.log pour vérifier si l'ajout a réussi
+      console.log('Devoir ajouté avec succès:', newAssignment);
+      });
+    
+    }
+  }
 
   // permet d'accéder aux sous formulaires
-  get FirstForm(){
+  get FirstForm() {
     return this.assignmentForm.get('firstFormGroup') as FormGroup;
   }
 
-  get SecondForm(){
+  get SecondForm() {
     return this.assignmentForm.get('secondFormGroup') as FormGroup;
   }
 
-  get ThirdForm(){
+  get ThirdForm() {
     return this.assignmentForm.get('thirdFormGroup') as FormGroup;
   }
-
-  /*HandleSubmit(){
-    if(this.firstFormGroup.valid){
-      console.log(this.firstFormGroup.value);
-    }
-  }*/
 }

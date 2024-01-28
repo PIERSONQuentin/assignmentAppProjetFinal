@@ -1,7 +1,8 @@
 
+<form ngForm [formGroup]="assignmentForm">
 <mat-horizontal-stepper linear="true" color="primary">
   <!-- Étape 1 -->
-  <form [formGroup]="assignmentForm">
+  
   <mat-step [stepControl]="FirstForm">
     <div formGroupName="firstFormGroup">
       <ng-template matStepLabel>Étape 1</ng-template>
@@ -40,14 +41,17 @@
     <div formGroupName="thirdFormGroup">
       <ng-template matStepLabel>Étape 3</ng-template>
       <mat-form-field class="input">
-        <input matInput formControlName="matiere" placeholder="Matière" required>
+        <mat-select formControlName="matiere" placeholder="Matière" required>
+          <mat-option *ngFor="let matiere of matieres" [value]="matiere">{{ matiere }}</mat-option>
+        </mat-select>
       </mat-form-field>
       <div>
         <button mat-button color="warn" matStepperPrevious>Étape précédente</button>
-        <button mat-button color="primary"  >Terminer</button>
+        <button mat-button color="primary" type="button" (click)="onSubmit()">Terminer</button>
+
       </div>
     </div>
   </mat-step>
-</form>
 </mat-horizontal-stepper>
+</form>
 
