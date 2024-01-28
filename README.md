@@ -73,4 +73,4 @@ VASSEUR Matthéo
 - Ajout de messages de notification avec SnackBar Material.
 
 
-Lien de la vidéo : [https://drive.google.com/drive/folders/1fDbo3f2FIq4kHrIYkuXDw_ogQHsSi7K1?usp=sharing](url)
+[Lien de la vidéo ](https://drive.google.com/drive/folders/1fDbo3f2FIq4kHrIYkuXDw_ogQHsSi7K1?usp=sharing)
