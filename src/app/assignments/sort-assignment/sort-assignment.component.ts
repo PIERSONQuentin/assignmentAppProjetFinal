@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { NotificationService } from 'src/app/shared/notification.service';
 
 @Component({
   selector: 'app-sort-assignment',
@@ -12,7 +13,7 @@ export class SortAssignmentComponent implements OnInit {
   sortDate: string = "";
   sortRendu: string = "";
 
-  constructor() { }
+  constructor(private notificationService: NotificationService) { }
 
   ngOnInit(): void {
     // Initialiser ou récupérer vos assignments ici
@@ -41,6 +42,9 @@ export class SortAssignmentComponent implements OnInit {
     this.sortRendu = "";
     this.sortSearch = "";
     this.emitSortCriteria();
+
+    // notification pour afficher un message
+    this.notificationService.show('Les filtres ont bien été réinitialiser.');
   }
 
   // Envoyer les critères de tri au composant parent

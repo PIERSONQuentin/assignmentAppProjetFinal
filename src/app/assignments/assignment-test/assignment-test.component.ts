@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AssignmentsService } from 'src/app/shared/assignments.service';
 import { AuthService } from 'src/app/shared/auth.service';
+import { NotificationService } from 'src/app/shared/notification.service';
 
 @Component({
   selector: 'app-assignment-test',
@@ -10,7 +11,8 @@ import { AuthService } from 'src/app/shared/auth.service';
 export class AssignmentTestComponent implements OnInit {
 
   constructor(private assignmentService:AssignmentsService,
-              private authService:AuthService) { }
+              private authService:AuthService,
+              private notificationService: NotificationService) { }
 
   ngOnInit(): void {
   }
@@ -28,6 +30,8 @@ export class AssignmentTestComponent implements OnInit {
 
   peuplerBD() {
     this.assignmentService.peuplerBD();
+    // notification pour afficher un message
+    this.notificationService.show('Les Assignments ont bien été ajoutés à la BDD.');
   }
 
 }
